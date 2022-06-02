@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Hotels from './components/Hotels';
+import Hotels from './pages/Hotels';
 
 function App() {
   return (
