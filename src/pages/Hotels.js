@@ -1,10 +1,9 @@
 const Hotels = () => {
   return (
     <>
-      <h1>Hotels Index</h1>
+      <p className="fs-2">Hotels Index</p>
     </>
-  )
-
-}
+  );
+};
 
 export default Hotels;
