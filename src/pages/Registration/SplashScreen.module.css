@@ -1,0 +1,37 @@
+:root {
+  --orange: #ffb701;
+}
+
+.page-container {
+  background-color: var(--orange);
+  position: relative;
+}
+
+.menu-icon-container {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.splash-icon {
+  width: 2rem;
+  height: 1 rem;
+  color: white;
+}
+
+.search-bar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 40%;
+  padding: 0rem 1rem;
+}
+
+.logout-menu {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  /* background-image: url("../../assets/images/hotel-menu.jpg"); */
+}

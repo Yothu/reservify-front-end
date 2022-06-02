@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import Hotels from './pages/Hotels';
+import SplashScreen from './pages/Registration/SplashScreen';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Hotels />} />
+        <Route path="/" element={<SplashScreen />} />
       </Routes>
     </div>
   );
