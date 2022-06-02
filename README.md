@@ -1,56 +1,45 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Reservify
 
-# Project Name
-
-> Description the project.
+> ####
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- React.js
+- Redux (@redux/toolkit)
+- React-Bootstrap
 
-## Live Demo (if available)
+## Additional Used
 
-[Live Demo Link](https://livedemo.com)
+- Api
+- KanbanBoard
+- Linters
+- Gitflow
+- npm
 
+## Live Demo 🌐
+
+### []()
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+`git clone `
 
-### Setup
+Then `cd `
 
-### Install
+Then `npm install` to install packages
 
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+Finally `npm start`
 
 ## Authors
 
-👤 **Author1**
+👤 **Kyrillos Hany**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Bondok6](https://github.com/Bondok6)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kyrillos-hany/)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
@@ -61,12 +50,6 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
