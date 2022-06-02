@@ -9,12 +9,10 @@
 :root {
   --green: #98be0f;
   --yellow: #fbbc05;
-
   --gray-light: #a4a4a4;
   --gray-dark: #959595;
-
-  --white: #ffffff;
-  --black: #000000;
+  --white: #fff;
+  --black: #000;
 }
 
 ::selection {

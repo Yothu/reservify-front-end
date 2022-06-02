@@ -74,6 +74,7 @@
 .social li {
   transition: 0.4s;
 }
+
 .social li:hover {
   transform: scale(1.2);
 }
