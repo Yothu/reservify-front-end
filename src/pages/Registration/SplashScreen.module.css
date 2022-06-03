@@ -27,6 +27,7 @@
   position: relative;
   max-width: 100%;
   border-radius: 50%;
+  padding: 0rem 2rem;
 }
 
 .top-bar-container {
@@ -37,13 +38,15 @@
 }
 
 .hotel-background {
-  width: 90%;
+  width: 100%;
   border-radius: 50%;
   border: 0.2rem solid #e0a101;
 }
 
 .outer-hotel-container {
+  flex-grow: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -52,18 +55,19 @@
   left: 50%;
   color: white;
   position: absolute;
-  font-size: 3.5rem;
+  font-size: 12vw;
   font-family: "ReflexBlack";
   transform: translate(-50%, -50%);
 }
 
+@media (min-width: 1300px)  {
+  .app-name {
+    font-size: 155px;
+  }
+}
+
 .logout-menu {
-  /* min-width: 100vw;
-  min-height: 100vh;
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: 50%; */
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  /* background-image: url("../../assets/images/hotel-menu.jpg"); */
 }
