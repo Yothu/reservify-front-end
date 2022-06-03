@@ -27,7 +27,7 @@
   position: relative;
   max-width: 100%;
   border-radius: 50%;
-  padding: 0rem 2rem;
+  padding: 0 2rem;
 }
 
 .top-bar-container {
@@ -56,11 +56,11 @@
   color: white;
   position: absolute;
   font-size: 12vw;
-  font-family: "ReflexBlack";
+  font-family: "ReflexBlack", sans-serif;
   transform: translate(-50%, -50%);
 }
 
-@media (min-width: 1300px)  {
+@media (min-width: 1300px) {
   .app-name {
     font-size: 155px;
   }
