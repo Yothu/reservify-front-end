@@ -9,12 +9,6 @@
   position: relative;
 }
 
-@media (min-width: 1300px) {
-  .app-name {
-    font-size: 155px;
-  }
-}
-
 .logout-menu {
   display: flex;
   min-height: 100vh;

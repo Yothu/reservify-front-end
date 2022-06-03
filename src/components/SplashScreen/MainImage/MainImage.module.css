@@ -6,14 +6,16 @@
 }
 
 .splash-background-container {
-  position: relative;
-  max-width: 100%;
-  border-radius: 50%;
   padding: 0 2rem;
+  max-width: 100%;
+  margin: auto;
+  position: relative;
+  border-radius: 50%;
 }
 
 .hotel-background {
   width: 100%;
+  max-width: 880px;
   border-radius: 50%;
   border: 0.2rem solid #e0a101;
 }
@@ -26,4 +28,10 @@
   font-size: 12vw;
   font-family: "ReflexBlack", sans-serif;
   transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1300px) {
+  .app-name {
+    font-size: 155px;
+  }
 }
