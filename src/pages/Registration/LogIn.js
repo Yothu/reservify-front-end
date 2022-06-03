@@ -3,42 +3,53 @@ import { useForm } from 'react-hook-form';
 
 function LogIn() {
   const {
-    register, handleSubmit, watch, formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+    register, handleSubmit, formState: { errors },
+    // watch,
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
 
-  console.log(watch('example'));
-  console.log(watch('exampleRequired'));
+  const onSubmit = (data) => console.log(data);
 
   return (
     <div className="d-flex flex-column align-items-center pt-5">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h3>Log In</h3>
         <div className="mb-3">
-          <label htmlFor="temp-email">
+          <label htmlFor="email">
             Email address
             <input
               type="email"
               className="form-control"
               placeholder="Enter email"
-              id="temp-email"
-              {...register('example')}
+              id="email"
+              {...register('email', { required: 'Email is required' })}
             />
           </label>
+          <p>{errors.email?.message}</p>
         </div>
         <div className="mb-3">
-          <label htmlFor="temp-password">
+          <label htmlFor="password">
             Password
             <input
               type="password"
               className="form-control"
               placeholder="Enter password"
-              id="temp-password"
-              {...register('exampleRequired', { required: true })}
+              id="password"
+              {...register('password', {
+                required: 'Password is required',
+                minLength: {
+                  value: 6,
+                  message: 'Min length is 6',
+                },
+              })}
             />
           </label>
+          <p>{errors.password?.message}</p>
         </div>
-        {errors.exampleRequired && alert('hi')}
         <div className="mb-3">
           <div className="custom-control custom-checkbox">
             <label className="custom-control-label" htmlFor="customCheck1">
