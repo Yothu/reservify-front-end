@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
 import Signup from './pages/signup/Signup';
 import Reserve from './pages/reserve/Reserve';
+import SplashScreen from './pages/Registration/SplashScreen';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       </header>
       <main className="page">
         <Routes>
+          <Route path="/" element={<SplashScreen />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/reserve" element={<Reserve />} />
         </Routes>
