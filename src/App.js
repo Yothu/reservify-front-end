@@ -9,12 +9,12 @@ function App() {
       <header>
         <Sidebar />
       </header>
-      {/* <main className="container"> */}
-      <Routes>
-        <Route path="/" element={<SplashScreen />} />
-        {/* <Route path="/signup" element={<Signup />} /> */}
-      </Routes>
-      {/* </main> */}
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<SplashScreen />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </main>
     </>
   );
 }
