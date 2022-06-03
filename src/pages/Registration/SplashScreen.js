@@ -3,7 +3,7 @@ import { IconContext } from 'react-icons';
 import * as HiIcon from 'react-icons/hi';
 import * as FaIcon from 'react-icons/fa';
 import style from './SplashScreen.module.css';
-import mainHotel from '../../assets/images/hotel-menu.jpg';
+import mainHotel from '../../assets/images/room-1.jpg';
 
 const SplashScreen = () => {
   // const searchStyle = {
@@ -31,11 +31,12 @@ const SplashScreen = () => {
             </IconContext.Provider>
           </div>
         </nav>
-        {/* mx-2 my-4 position-relative text-center text-white */}
 
-        <div className={style['splash-background-container']}>
-          <img src={mainHotel} alt="hotel-background" className={style['hotel-background']} />
-          <h1 className={style['app-name']}>{appTitle}</h1>
+        <div className={style['outer-hotel-container']}>
+          <div className={style['splash-background-container']}>
+            <img src={mainHotel} alt="hotel-background" className={style['hotel-background']} />
+            <h1 className={style['app-name']}>{appTitle}</h1>
+          </div>
         </div>
       </div>
     </div>
