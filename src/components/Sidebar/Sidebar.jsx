@@ -14,9 +14,9 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#FBBC05' }}>
-        <Link to="#" className={style.menu}>
+        <div className={style.menu}>
           <FaIcons.FaBars onClick={showSidebar} />
-        </Link>
+        </div>
 
         <nav
           className={
@@ -25,14 +25,14 @@ function Navbar() {
         >
           <ul onClick={showSidebar}>
             <li className={style.navbarToggle}>
-              <Link to="/" className={style.menu}>
+              <div className={style.menu}>
                 <AiIcons.AiOutlineClose />
-              </Link>
+              </div>
             </li>
 
             <li>
               <Link to="/" className={style.menu}>
-                <img src={logo} alt="logo" width={150} />
+                <img src={logo} alt="logo" width={100} />
               </Link>
             </li>
 
@@ -47,25 +47,25 @@ function Navbar() {
               );
             })}
           </ul>
-
-          <ul className={style.social}>
-            <li>
-              <a href="https://www.facebook.com" target="_blank">
-                <FaIcons.FaFacebookF />
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com" target="_black">
-                <FaIcons.FaTwitter />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.pinterest.com/" target="_black">
-                <FaIcons.FaPinterestP />
-              </a>
-            </li>
-          </ul>
-
+          <IconContext.Provider value={{ color: '#98be0f' }}>
+            <ul className={style.social}>
+              <li>
+                <a href="https://www.facebook.com" target="_blank">
+                  <FaIcons.FaFacebookF />
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com" target="_black">
+                  <FaIcons.FaTwitter />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.pinterest.com/" target="_black">
+                  <FaIcons.FaPinterestP />
+                </a>
+              </li>
+            </ul>
+          </IconContext.Provider>
           <p className="fw-light mt-3 text-center">
             &copy; 2022, RESERVIFY TEAM.
           </p>

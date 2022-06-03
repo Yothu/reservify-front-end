@@ -1,17 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
-import Hotels from './pages/Hotels';
 import Sidebar from './components/Sidebar/Sidebar';
+import Hotels from './pages/Hotels';
+import Signup from './pages/signup/Signup';
 
 function App() {
   return (
-    <div>
+    <>
       <header>
         <Sidebar />
       </header>
-      <Routes>
-        <Route path="/" element={<Hotels />} />
-      </Routes>
-    </div>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Hotels />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 

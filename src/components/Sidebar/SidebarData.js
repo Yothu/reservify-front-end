@@ -31,8 +31,8 @@ const SidebarData = [
     icon: <RiIcons.RiLoginBoxLine />,
   },
   {
-    title: 'Signin',
-    path: '/',
+    title: 'Signup',
+    path: '/signup',
     icon: <AiIcons.AiOutlineLogin />,
   },
   {
