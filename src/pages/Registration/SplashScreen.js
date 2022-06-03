@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons';
 import * as HiIcon from 'react-icons/hi';
 import * as FaIcon from 'react-icons/fa';
 import style from './SplashScreen.module.css';
+import mainHotel from '../../assets/images/hotel-menu.jpg';
 
 const SplashScreen = () => {
   // const searchStyle = {
@@ -17,9 +18,9 @@ const SplashScreen = () => {
       <nav className="d-flex position-absolute">
         <hr />
       </nav>
-      <div className={`${style['logout-menu']} d-flex flex-column`}>
-        <div className="d-flex justify-content-between m-1">
-          <div className="menu-icon-container">
+      <div className={style['logout-menu']}>
+        <nav className={style['top-bar-container']}>
+          <div className={style['menu-icon-container']}>
             <IconContext.Provider value={{ color: 'white' }}>
               <HiIcon.HiMenuAlt4 size={40} />
             </IconContext.Provider>
@@ -29,14 +30,13 @@ const SplashScreen = () => {
               <FaIcon.FaSearch size={20} />
             </IconContext.Provider>
           </div>
-        </div>
+        </nav>
+        {/* mx-2 my-4 position-relative text-center text-white */}
 
-        <div className="mx-2 my-4 position-relative text-center text-white">
-          <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/21/91/1a/75/exterior.jpg" alt="" />
-          <p className="position-absolute start-50 translate-middle fw-bolder font-30px font-sm-45px w-100 past-upper-text">2013</p>
-          <p className="position-absolute start-50 top-50 translate-middle fw-bold font-15px font-sm-22px w-100 past-bottom-text">Expo Software in Challenger Deep</p>
+        <div className={style['splash-background-container']}>
+          <img src={mainHotel} alt="hotel-background" className={style['hotel-background']} />
+          <h1 className={style['app-name']}>{appTitle}</h1>
         </div>
-        <h1>{appTitle}</h1>
       </div>
     </div>
   );
