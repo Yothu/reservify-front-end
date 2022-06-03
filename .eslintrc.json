@@ -20,7 +20,8 @@
     "import/no-unresolved": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
 }

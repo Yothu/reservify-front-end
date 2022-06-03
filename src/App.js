@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Hotels from './pages/Hotels';
 import Signup from './pages/signup/Signup';
 import Reserve from './pages/reserve/Reserve';
+import './App.css';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <header>
         <Sidebar />
       </header>
-      <main className="container">
+      <main className="page">
         <Routes>
           <Route path="/" element={<Hotels />} />
           <Route path="/signup" element={<Signup />} />
