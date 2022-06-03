@@ -14,10 +14,11 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#FBBC05' }}>
-        <div className={style.menu}>
-          <FaIcons.FaBars onClick={showSidebar} />
-        </div>
-
+        <IconContext.Provider value={{ color: '#fff' }}>
+          <div className={style.menu}>
+            <FaIcons.FaBars onClick={showSidebar} />
+          </div>
+        </IconContext.Provider>
         <nav
           className={
             sidebar ? `${style.navMenu} ${style.active}` : `${style.navMenu}`

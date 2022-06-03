@@ -80,3 +80,9 @@
 .social li:hover {
   transform: scale(1.2);
 }
+
+@media screen and (max-width: 500px) {
+  .navMenu {
+    width: 100vw;
+  }
+}
