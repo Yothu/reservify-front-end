@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Hotels from './pages/Hotels';
-import LogIn from './pages/registration/LogIn';
+import LogIn from './pages/Registration/LogIn';
 
 function App() {
   return (
