@@ -1,9 +1,18 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 function LogIn() {
+  const {
+    register, handleSubmit, watch, formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  console.log(watch('example'));
+  console.log(watch('exampleRequired'));
+
   return (
     <div className="d-flex flex-column align-items-center pt-5">
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h3>Log In</h3>
         <div className="mb-3">
           <label htmlFor="temp-email">
@@ -13,6 +22,7 @@ function LogIn() {
               className="form-control"
               placeholder="Enter email"
               id="temp-email"
+              {...register('example')}
             />
           </label>
         </div>
@@ -24,9 +34,11 @@ function LogIn() {
               className="form-control"
               placeholder="Enter password"
               id="temp-password"
+              {...register('exampleRequired', { required: true })}
             />
           </label>
         </div>
+        {errors.exampleRequired && alert('hi')}
         <div className="mb-3">
           <div className="custom-control custom-checkbox">
             <label className="custom-control-label" htmlFor="customCheck1">
