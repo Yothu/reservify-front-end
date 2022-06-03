@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
-// import Signup from './pages/signup/Signup';
+import Signup from './pages/signup/Signup';
 import SplashScreen from './pages/Registration/SplashScreen';
 
 function App() {

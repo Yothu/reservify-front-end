@@ -1,14 +1,8 @@
 .top-bar-container {
   display: flex;
-  margin: 0.25rem;
+  width: 100%;
   align-items: center;
-  justify-content: space-between;
-}
-
-.menu-icon-container {
-  height: 3rem;
-  display: flex;
-  align-items: center;
+  justify-content: flex-end;
 }
 
 .search-bar {
@@ -17,4 +11,5 @@
   align-items: center;
   border-radius: 40%;
   padding: 0.4rem 0.9rem;
+  margin: 0.8rem 1.8rem;
 }
