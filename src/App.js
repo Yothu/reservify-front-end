@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
-import Signup from './pages/signup/Signup';
+// import Signup from './pages/signup/Signup';
 import SplashScreen from './pages/Registration/SplashScreen';
 
 function App() {
@@ -9,12 +9,12 @@ function App() {
       <header>
         <Sidebar />
       </header>
-      <main className="container">
-        <Routes>
-          <Route path="/" element={<SplashScreen />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </main>
+      {/* <main className="container"> */}
+      <Routes>
+        <Route path="/" element={<SplashScreen />} />
+        {/* <Route path="/signup" element={<Signup />} /> */}
+      </Routes>
+      {/* </main> */}
     </>
   );
 }

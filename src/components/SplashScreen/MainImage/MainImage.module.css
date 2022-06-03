@@ -23,7 +23,7 @@
 .app-name {
   top: 50%;
   left: 50%;
-  color: white;
+  color: var(--white);
   position: absolute;
   font-size: 12vw;
   font-family: "ReflexBlack", sans-serif;

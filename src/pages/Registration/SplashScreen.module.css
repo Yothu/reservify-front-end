@@ -3,10 +3,13 @@
 }
 
 .page-container {
+  top: 0;
+  left: 0;
+  z-index: -5;
   min-width: 100vw;
   min-height: 100vh;
+  position: absolute;
   background-color: var(--orange);
-  position: relative;
 }
 
 .logout-menu {

@@ -1,6 +1,7 @@
 .top-bar-container {
   display: flex;
   margin: 0.25rem;
+  padding: 0 1rem;
   align-items: center;
   justify-content: space-between;
 }
