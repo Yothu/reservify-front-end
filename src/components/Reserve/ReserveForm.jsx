@@ -1,25 +1,21 @@
 import React from 'react';
-import Select from './../Ui/Select';
 import style from './ReserveForm.module.css';
+import Select from '../Ui/Select';
 
 function ReserveForm() {
   const locations = ['Egypt', 'Spain', 'Germany'];
   const hotels = ['Hotel 1', 'Hotel 2', 'Hotel 3'];
-  const locationOptions = locations.map((location, index) => {
-    return (
-      <option key={index} value={location}>
-        {location}
-      </option>
-    );
-  });
+  const locationOptions = locations.map((location) => (
+    <option key={location} value={location}>
+      {location}
+    </option>
+  ));
 
-  const hotelOptions = hotels.map((hotel, index) => {
-    return (
-      <option key={index} value={hotel}>
-        {hotel}
-      </option>
-    );
-  });
+  const hotelOptions = hotels.map((hotel) => (
+    <option key={hotel} value={hotel}>
+      {hotel}
+    </option>
+  ));
 
   return (
     <form>

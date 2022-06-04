@@ -1,5 +1,5 @@
 import React from 'react';
-import ReserveForm from './../../components/Reserve/ReserveForm';
+import ReserveForm from '../../components/Reserve/ReserveForm';
 import style from './Reserve.module.css';
 
 function Reserve() {
