@@ -26,7 +26,13 @@ function LogIn() {
               className="form-control"
               placeholder="Enter email"
               id="email"
-              {...register('email', { required: 'Email is required' })}
+              {...register('email', {
+                required: 'Email is required',
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: 'Invalid email address',
+                },
+              })}
             />
           </label>
           <p>{errors.email?.message}</p>
