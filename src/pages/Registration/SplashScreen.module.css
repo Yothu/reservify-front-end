@@ -1,0 +1,73 @@
+:root {
+  --orange: #ffb701;
+}
+
+.page-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--orange);
+  position: relative;
+}
+
+.menu-icon-container {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 40%;
+  padding: 0.4rem 0.9rem;
+}
+
+.splash-background-container {
+  position: relative;
+  max-width: 100%;
+  border-radius: 50%;
+  padding: 0 2rem;
+}
+
+.top-bar-container {
+  display: flex;
+  margin: 0.25rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hotel-background {
+  width: 100%;
+  border-radius: 50%;
+  border: 0.2rem solid #e0a101;
+}
+
+.outer-hotel-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-name {
+  top: 50%;
+  left: 50%;
+  color: white;
+  position: absolute;
+  font-size: 12vw;
+  font-family: "ReflexBlack", sans-serif;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1300px) {
+  .app-name {
+    font-size: 155px;
+  }
+}
+
+.logout-menu {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}

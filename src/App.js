@@ -1,15 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
-import Hotels from './pages/Hotels';
+import Sidebar from './components/Sidebar/Sidebar';
+import Signup from './pages/signup/Signup';
 import LogIn from './pages/Registration/LogIn';
+import SplashScreen from './pages/Registration/SplashScreen';
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Hotels />} />
-        <Route path="/login" element={<LogIn />} />
-      </Routes>
-    </div>
+    <>
+      <header>
+        <Sidebar />
+      </header>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<SplashScreen />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<LogIn />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 
