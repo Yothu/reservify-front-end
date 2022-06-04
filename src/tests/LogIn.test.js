@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import {
   render,
-  prettyDOM,
+  // prettyDOM,
   fireEvent,
   act,
 } from '@testing-library/react';
@@ -15,6 +15,7 @@ describe('<Log In />', () => {
   let submitBtn;
 
   const mockEmail = 'abc';
+  const mockPassword = '123';
 
   beforeEach(() => {
     component = render(<LogIn />);
@@ -45,5 +46,22 @@ describe('<Log In />', () => {
     });
 
     component.getByText('Invalid', { exact: false });
+  });
+
+  test('if password field is empty on submit, renders "password required"', async () => {
+    await act(async () => {
+      fireEvent.submit(submitBtn);
+    });
+
+    component.getByText('Password is required', { exact: false });
+  });
+
+  test('should display correct error message for email miss match', async () => {
+    await act(async () => {
+      fireEvent.input(passwordField, { target: { value: mockPassword } });
+      fireEvent.submit(submitBtn);
+    });
+
+    component.getByText('Min length is', { exact: false });
   });
 });
