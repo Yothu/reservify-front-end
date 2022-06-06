@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import SidebarData from './SidebarData';
 import style from './Sidebar.module.css';
-import logo from '../../images/logo.png';
+import logo from '../../assets/images/logo.png';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);

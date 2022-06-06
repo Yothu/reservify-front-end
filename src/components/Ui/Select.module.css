@@ -6,7 +6,7 @@
   outline: none;
   background-color: transparent;
   color: var(--white);
-  background-image: url('../../images/down-arrow.svg');
+  background-image: url('../../assets/images/down-arrow.svg');
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-position-y: 8px;
