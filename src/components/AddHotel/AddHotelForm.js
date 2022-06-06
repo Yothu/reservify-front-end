@@ -52,7 +52,7 @@ const AddHotelForm = () => {
         type="number"
         min="1"
         max="5"
-        placeholder="Stars quantity"
+        placeholder="Stars quantity (1~5)"
         className="form-control w-75"
         {...register('stars', { required: 'You must set stars for the new hotel' })}
       />
@@ -67,13 +67,14 @@ const AddHotelForm = () => {
       {errors.rooms && <ErrorMsg message={errors.rooms.message} cName="w-75" />}
       <input
         type="number"
+        step="0.01"
         placeholder="Price of a room"
         min="1"
         className="form-control w-75"
         {...register('price', { required: 'Room price is required' })}
       />
       {errors.price && <ErrorMsg message={errors.price.message} cName="w-75" />}
-      <Button type="submit" text="Signup" cName="mt-3" />
+      <Button type="submit" text="Add Hotel" cName="mt-3" />
     </form>
   );
 };
