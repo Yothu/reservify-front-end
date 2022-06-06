@@ -6,7 +6,7 @@ import {
   fireEvent,
   act,
 } from '@testing-library/react';
-import LogIn from '../pages/Registration/LogIn';
+import LogIn from '../pages/registration/LogIn';
 
 describe('<Log In />', () => {
   let component;

@@ -2,9 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import SplashScreen from './pages/registration/SplashScreen';
 import Signup from './pages/registration/signup/Signup';
 import Sidebar from './components/Sidebar/Sidebar';
-import Signup from './pages/signup/Signup';
-import LogIn from './pages/Registration/LogIn';
-import SplashScreen from './pages/Registration/SplashScreen';
+import LogIn from './pages/registration/LogIn';
 import Reserve from './pages/reserve/Reserve';
 import './App.css';
 
