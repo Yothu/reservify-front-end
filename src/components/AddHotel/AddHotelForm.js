@@ -25,39 +25,54 @@ const AddHotelForm = () => {
         {...register('name', { required: 'Hotel name is required' })}
       />
       {errors.name && <ErrorMsg message={errors.name.message} cName="w-75" />}
+      <div className="d-flex gap-2 w-75">
+        <input
+          type="text"
+          placeholder="Country"
+          className="form-control flex-grow-1"
+          {...register('country', { required: 'Country is Required' })}
+        />
+        {errors.country && <ErrorMsg message={errors.country.message} cName="w-75" />}
+        <input
+          type="text"
+          placeholder="City"
+          className="form-control flex-grow-1"
+          {...register('city', { required: 'City is Required' })}
+        />
+        {errors.country && <ErrorMsg message={errors.country.message} cName="w-75" />}
+        <input
+          type="text"
+          placeholder="Street"
+          className="form-control flex-grow-1"
+          {...register('street', { required: 'Street is Required' })}
+        />
+        {errors.street && <ErrorMsg message={errors.street.message} cName="w-75" />}
+      </div>
       <input
-        type="text"
-        placeholder="Country"
+        type="number"
+        min="1"
+        max="5"
+        placeholder="Stars quantity"
         className="form-control w-75"
-        {...register('country', { required: 'Country is Required' })}
+        {...register('stars', { required: 'You must set stars for the new hotel' })}
       />
-      {errors.country && <ErrorMsg message={errors.country.message} cName="w-75" />}
+      {errors.stars && <ErrorMsg message={errors.stars.message} cName="w-75" />}
       <input
-        type="text"
-        placeholder="City"
+        type="number"
+        min="1"
+        placeholder="Room quantity"
         className="form-control w-75"
-        {...register('city', { required: 'City is Required' })}
+        {...register('rooms', { required: 'Room quantity is required' })}
       />
-      {errors.country && <ErrorMsg message={errors.country.message} cName="w-75" />}
+      {errors.rooms && <ErrorMsg message={errors.rooms.message} cName="w-75" />}
       <input
-        type="text"
-        placeholder="Street"
+        type="number"
+        placeholder="Price of a room"
+        min="1"
         className="form-control w-75"
-        {...register('street', { required: 'Street is Required' })}
+        {...register('price', { required: 'Room price is required' })}
       />
-      {errors.street && <ErrorMsg message={errors.street.message} cName="w-75" />}
-      <input
-        type="password"
-        placeholder="Password"
-        className="form-control w-75"
-        {...register('password', {
-          required: 'Password is Required',
-          minLength: { value: 6, message: 'Password is Too Short' },
-        })}
-      />
-      {errors.password && (
-        <ErrorMsg message={errors.password.message} cName="w-75" />
-      )}
+      {errors.price && <ErrorMsg message={errors.price.message} cName="w-75" />}
       <Button type="submit" text="Signup" cName="mt-3" />
     </form>
   );
