@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import SidebarData from './SidebarData';
 import { IconContext } from 'react-icons';
+import SidebarData from './SidebarData';
 import style from './Sidebar.module.css';
 import logo from '../../images/logo.png';
 
@@ -13,7 +13,7 @@ function Navbar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#FBBC05' }}>
+      <IconContext.Provider value={{ color: '#FFFFFF' }}>
         <div className={style.menu}>
           <FaIcons.FaBars onClick={showSidebar} />
         </div>
@@ -23,12 +23,14 @@ function Navbar() {
             sidebar ? `${style.navMenu} ${style.active}` : `${style.navMenu}`
           }
         >
-          <ul onClick={showSidebar}>
-            <li className={style.navbarToggle}>
-              <div className={style.menu}>
-                <AiIcons.AiOutlineClose />
-              </div>
-            </li>
+          <ul>
+            <IconContext.Provider value={{ color: '#000000' }}>
+              <li className={style.navbarToggle}>
+                <div className={style.menu}>
+                  <AiIcons.AiOutlineClose onClick={showSidebar} />
+                </div>
+              </li>
+            </IconContext.Provider>
 
             <li>
               <Link to="/" className={style.menu}>
@@ -36,31 +38,29 @@ function Navbar() {
               </Link>
             </li>
 
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={style.navText}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            {SidebarData.map((item) => (
+              <li key={item.title} className={style.navText}>
+                <Link to={item.path}>
+                  {item.icon}
+                  <span>{item.title}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
           <IconContext.Provider value={{ color: '#98be0f' }}>
             <ul className={style.social}>
               <li>
-                <a href="https://www.facebook.com" target="_blank">
+                <a href="https://www.facebook.com" rel="noreferrer" target="_blank">
                   <FaIcons.FaFacebookF />
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com" target="_black">
+                <a href="https://twitter.com" rel="noreferrer" target="_blank">
                   <FaIcons.FaTwitter />
                 </a>
               </li>
               <li>
-                <a href="https://www.pinterest.com/" target="_black">
+                <a href="https://www.pinterest.com/" rel="noreferrer" target="_blank">
                   <FaIcons.FaPinterestP />
                 </a>
               </li>
