@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import SidebarData from './SidebarData';
 import style from './Sidebar.module.css';
-import logo from '../../images/logo.png';
+import logo from '../../assets/images/logo.png';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -13,24 +13,23 @@ function Navbar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#FFFFFF' }}>
-        <div className={style.menu}>
-          <FaIcons.FaBars onClick={showSidebar} />
-        </div>
-
+      <IconContext.Provider value={{ color: '#FBBC05' }}>
+        <IconContext.Provider value={{ color: '#fff' }}>
+          <div className={style.menu}>
+            <FaIcons.FaBars onClick={showSidebar} />
+          </div>
+        </IconContext.Provider>
         <nav
           className={
             sidebar ? `${style.navMenu} ${style.active}` : `${style.navMenu}`
           }
         >
-          <ul>
-            <IconContext.Provider value={{ color: '#000000' }}>
-              <li className={style.navbarToggle}>
-                <div className={style.menu}>
-                  <AiIcons.AiOutlineClose onClick={showSidebar} />
-                </div>
-              </li>
-            </IconContext.Provider>
+          <ul role="presentation" onClick={showSidebar}>
+            <li className={style.navbarToggle}>
+              <div className={style.menu}>
+                <AiIcons.AiOutlineClose />
+              </div>
+            </li>
 
             <li>
               <Link to="/" className={style.menu}>
@@ -50,7 +49,11 @@ function Navbar() {
           <IconContext.Provider value={{ color: '#98be0f' }}>
             <ul className={style.social}>
               <li>
-                <a href="https://www.facebook.com" rel="noreferrer" target="_blank">
+                <a
+                  href="https://www.facebook.com"
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   <FaIcons.FaFacebookF />
                 </a>
               </li>
@@ -60,7 +63,11 @@ function Navbar() {
                 </a>
               </li>
               <li>
-                <a href="https://www.pinterest.com/" rel="noreferrer" target="_blank">
+                <a
+                  href="https://www.pinterest.com/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   <FaIcons.FaPinterestP />
                 </a>
               </li>

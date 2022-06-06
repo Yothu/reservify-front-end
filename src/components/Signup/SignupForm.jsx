@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import Button from './../Ui/Button';
 import { useForm } from 'react-hook-form';
-import ErrorMsg from './../Ui/ErrorMsg';
+import Button from '../Ui/Button';
+import ErrorMsg from '../Ui/ErrorMsg';
 
 const SignupForm = () => {
   const {
@@ -54,8 +54,10 @@ const SignupForm = () => {
         placeholder="Confim Password"
         className="form-control w-75"
         {...register('confirm_password', {
-          validate: (value) =>
-            value === password.current || 'The passwords do not match',
+          validate: (value) => {
+            if (value === password.current) return null;
+            return 'The passwords do not match';
+          },
         })}
       />
       {errors.confirm_password && (

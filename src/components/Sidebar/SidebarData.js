@@ -7,7 +7,7 @@ import * as RiIcons from 'react-icons/ri';
 const SidebarData = [
   {
     title: 'Reserve',
-    path: '/',
+    path: '/reserve',
     icon: <MdIcons.MdBorderColor />,
   },
   {

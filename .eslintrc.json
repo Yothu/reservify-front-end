@@ -21,7 +21,8 @@
     "no-shadow": "off",
     "no-param-reassign": "off",
     "camelcase": "off",
-    "react/button-has-type": "off" 
+    "react/jsx-props-no-spreading": "off",
+    "react/button-has-type": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
 }

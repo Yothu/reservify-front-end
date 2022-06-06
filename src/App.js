@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import SplashScreen from './pages/registration/SplashScreen';
+import Signup from './pages/registration/signup/Signup';
 import Sidebar from './components/Sidebar/Sidebar';
-import Signup from './pages/signup/Signup';
-import SplashScreen from './pages/Registration/SplashScreen';
+import Reserve from './pages/reserve/Reserve';
+import './App.css';
 
 function App() {
   return (
@@ -9,10 +11,11 @@ function App() {
       <header>
         <Sidebar />
       </header>
-      <main className="container">
+      <main className="page">
         <Routes>
           <Route path="/" element={<SplashScreen />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/reserve" element={<Reserve />} />
         </Routes>
       </main>
     </>

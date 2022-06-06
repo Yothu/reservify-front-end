@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function ErrorMsg({ message, cName }) {
   return (
@@ -7,5 +8,10 @@ function ErrorMsg({ message, cName }) {
     </span>
   );
 }
+
+ErrorMsg.propTypes = {
+  message: PropTypes.string.isRequired,
+  cName: PropTypes.string.isRequired,
+};
 
 export default ErrorMsg;
