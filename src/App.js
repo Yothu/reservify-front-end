@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar';
-import Signup from './pages/signup/Signup';
+import Signup from './pages/registration/signup/Signup';
 import Reserve from './pages/reserve/Reserve';
-import SplashScreen from './pages/Registration/SplashScreen';
+import SplashScreen from './pages/registration/SplashScreen';
 import './App.css';
 
 function App() {

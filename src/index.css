@@ -12,6 +12,7 @@
   --yellow: #fbbc05;
   --gray-light: #a4a4a4;
   --gray-dark: #959595;
+  --bg-gray: #d3d3d3;
   --white: #fff;
   --black: #000;
 }
@@ -26,9 +27,8 @@ body {
 }
 
 @font-face {
-  font-family: "ReflexBlack";
-  src:
-    local("ReflexBlack"),
-    url("./assets/fonts/Reflex_Black.ttf") format("truetype");
+  font-family: 'ReflexBlack';
+  src: local('ReflexBlack'),
+    url('./assets/fonts/Reflex_Black.ttf') format('truetype');
   font-weight: bold;
 }

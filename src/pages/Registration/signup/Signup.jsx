@@ -1,6 +1,6 @@
 import React from 'react';
-import SignupForm from '../../components/Signup/SignupForm';
-import registerImg from '../../assets/images/undraw-svg/register.svg';
+import SignupForm from '../../../components/Signup/SignupForm';
+import registerImg from '../../../assets/images/undraw-svg/register.svg';
 import style from './Signup.module.css';
 
 function Signup() {
