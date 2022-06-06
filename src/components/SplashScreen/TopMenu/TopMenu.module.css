@@ -1,0 +1,15 @@
+.top-bar-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search-bar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 40%;
+  padding: 0.4rem 0.9rem;
+  margin: 0.8rem 1.8rem;
+}
