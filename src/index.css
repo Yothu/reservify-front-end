@@ -28,7 +28,8 @@ body {
 
 @font-face {
   font-family: 'ReflexBlack';
-  src: local('ReflexBlack'),
+  src:
+    local('ReflexBlack'),
     url('./assets/fonts/Reflex_Black.ttf') format('truetype');
   font-weight: bold;
 }
