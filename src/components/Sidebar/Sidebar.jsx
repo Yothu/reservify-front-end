@@ -10,7 +10,6 @@ import logo from '../../assets/images/logo.png';
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-
   return (
     <>
       <IconContext.Provider value={{ color: '#FBBC05' }}>
