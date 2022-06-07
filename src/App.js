@@ -13,10 +13,30 @@ import './App.css';
 function App() {
   const hotels = [
     {
-      id: '1', name: 'Hilton', image_url: 'https://drive.google.com/uc?export=view&id=1bYXrlSNGpLJF9TlY-2mRBphA0zVpz93w',
+      id: '1',
+      name: 'Hilton',
+      image_url: 'https://drive.google.com/uc?export=view&id=1bYXrlSNGpLJF9TlY-2mRBphA0zVpz93w',
+      address: 'Street 1, Avenue 1',
+      city: 'New York',
+      country: 'USA',
+      room_price: 152.5,
+      pet_friendly: true,
+      number_of_rooms: 10,
+      stars: 5,
+      current_free_rooms: 10,
     },
     {
-      id: '2', name: 'Sheraton', image_url: 'https://drive.google.com/uc?export=view&id=1oG8F5q80t9HmKkS6iWfUG28Mmo8oFmsZ',
+      id: '2',
+      name: 'Sheraton',
+      image_url: 'https://drive.google.com/uc?export=view&id=1oG8F5q80t9HmKkS6iWfUG28Mmo8oFmsZ',
+      address: 'Street 2, Avenue 2',
+      city: 'California',
+      country: 'India',
+      room_price: 265.5,
+      pet_friendly: false,
+      number_of_rooms: 25,
+      stars: 4,
+      current_free_rooms: 25,
     },
   ];
   return (
