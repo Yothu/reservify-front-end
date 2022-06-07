@@ -22,7 +22,7 @@ const SidebarData = [
   },
   {
     title: 'Delete Hotel',
-    path: '/',
+    path: '/delete_hotel',
     icon: <AiIcons.AiFillDelete />,
   },
   {
