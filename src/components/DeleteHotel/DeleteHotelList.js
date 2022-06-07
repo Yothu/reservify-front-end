@@ -7,7 +7,7 @@ const DeleteHotelList = () => {
   return (
     <table className={style['delete-table']}>
       <thead>
-     <tr className="fs-5">
+        <tr className="fs-5">
           <th>Hotel Name</th>
           <th>Action</th>
         </tr>
