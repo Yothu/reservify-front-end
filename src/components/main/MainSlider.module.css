@@ -11,3 +11,26 @@
   display: flex;
   gap: 1.2rem;
 }
+
+.right_arrow,
+.left_arrow {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.right_arrow {
+  padding: 1rem 3rem 1rem 1.5rem;
+  background-color: var(--green);
+  border-radius: 40% 0 0 40%;
+  right: 0;
+}
+
+.left_arrow {
+  padding: 1rem 1.5rem 1rem 3rem;
+  background-color: var(--gray-light);
+  border-radius: 0 40% 40% 0;
+  left: 0;
+}
