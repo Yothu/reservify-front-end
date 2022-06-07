@@ -1,7 +1,5 @@
 .card {
   min-width: 20rem;
-  /* min-height: 25rem; */
-  /* background-color: blue; */
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
