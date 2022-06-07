@@ -20,15 +20,25 @@
 }
 
 .right_arrow {
-  padding: 1rem 3rem 1rem 1.5rem;
+  padding: 0.8rem 3rem 0.8rem 1.5rem;
   background-color: var(--green);
   border-radius: 40% 0 0 40%;
   right: 0;
 }
 
 .left_arrow {
-  padding: 1rem 1.5rem 1rem 3rem;
+  padding: 0.8rem 1.5rem 0.8rem 3rem;
   background-color: var(--gray-light);
   border-radius: 0 40% 40% 0;
   left: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .right_arrow {
+    padding: 0.8rem 1rem 0.8rem 1rem;
+  }
+
+  .left_arrow {
+    padding: 0.8rem 1rem 0.8rem 1rem;
+  }
 }
