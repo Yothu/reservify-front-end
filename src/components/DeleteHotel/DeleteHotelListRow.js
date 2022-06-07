@@ -10,10 +10,12 @@ const DeleteHotelListRow = ({ id, name }) => {
   };
 
   return (
-    <tr className="border border-top-1">
+    <tr className="border border-top-1 fs-6">
       <th>{name}</th>
       <th>
-        <button onClick={removeHotel}>Delete</button>
+        <button className="btn btn-outline-danger" onClick={removeHotel}>
+          Delete
+        </button>
       </th>
     </tr>
   );
