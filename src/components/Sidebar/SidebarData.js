@@ -17,7 +17,7 @@ const SidebarData = [
   },
   {
     title: 'Add Hotel',
-    path: '/',
+    path: '/add_hotel',
     icon: <AiIcons.AiFillFileAdd />,
   },
   {
@@ -27,7 +27,7 @@ const SidebarData = [
   },
   {
     title: 'Login',
-    path: '/',
+    path: '/login',
     icon: <RiIcons.RiLoginBoxLine />,
   },
   {

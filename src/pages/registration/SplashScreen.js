@@ -4,13 +4,13 @@ import MainImage from '../../components/SplashScreen/MainImage/MainImage';
 import AuthButtons from '../../components/SplashScreen/AuthButtons/AuthButtons';
 
 const SplashScreen = () => (
-  <div className={style['page-container']}>
+  <section className={style['page-container']}>
     <div className={style['logout-menu']}>
       <TopMenu />
       <MainImage />
       <AuthButtons />
     </div>
-  </div>
+  </section>
 );
 
 export default SplashScreen;
