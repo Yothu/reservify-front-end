@@ -13,7 +13,7 @@ const MainSlider = () => {
 
   const nextHandler = () => {
     if (counter === HotelsData.length - 1) return;
-    slider.current.style.transition = 'transform 0.8s ease-in-out';
+    slider.current.style.transition = 'transform 0.4s ease-in-out';
     const c = counter + 1;
     slider.current.style.transform = `translateX(${-size * c}px)`;
     setCounter(c);

@@ -15,7 +15,7 @@
 .left_arrow {
   position: absolute;
   cursor: pointer;
-  top: 50%;
+  top: 45%;
   font-size: 1.5rem;
   color: var(--white);
 }
