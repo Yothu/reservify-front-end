@@ -13,10 +13,10 @@ import './App.css';
 function App() {
   const hotels = [
     {
-      id: '1', name: 'Hilton',
+      id: '1', name: 'Hilton', image_url: 'https://drive.google.com/uc?export=view&id=1bYXrlSNGpLJF9TlY-2mRBphA0zVpz93w',
     },
     {
-      id: '2', name: 'Sheraton',
+      id: '2', name: 'Sheraton', image_url: 'https://drive.google.com/uc?export=view&id=1oG8F5q80t9HmKkS6iWfUG28Mmo8oFmsZ',
     },
   ];
   return (
