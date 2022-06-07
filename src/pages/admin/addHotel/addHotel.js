@@ -2,7 +2,7 @@ import AddHotelForm from '../../../components/AddHotel/AddHotelForm';
 
 const AddHotel = () => (
   <section>
-    <div className="d-flex justify-content-center">
+    <div className="text-center my-5">
       <h1>Add Hotel</h1>
     </div>
 
