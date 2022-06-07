@@ -32,21 +32,27 @@ const AddHotelForm = () => {
           className="form-control flex-grow-1"
           {...register('country', { required: 'Country is Required' })}
         />
-        {errors.country && <ErrorMsg message={errors.country.message} cName="w-75" />}
+        {errors.country && (
+          <ErrorMsg message={errors.country.message} cName="w-75" />
+        )}
         <input
           type="text"
           placeholder="City"
           className="form-control flex-grow-1"
           {...register('city', { required: 'City is Required' })}
         />
-        {errors.country && <ErrorMsg message={errors.country.message} cName="w-75" />}
+        {errors.country && (
+          <ErrorMsg message={errors.country.message} cName="w-75" />
+        )}
         <input
           type="text"
           placeholder="Street"
           className="form-control flex-grow-1"
           {...register('street', { required: 'Street is Required' })}
         />
-        {errors.street && <ErrorMsg message={errors.street.message} cName="w-75" />}
+        {errors.street && (
+          <ErrorMsg message={errors.street.message} cName="w-75" />
+        )}
       </div>
       <input
         type="number"
@@ -54,7 +60,9 @@ const AddHotelForm = () => {
         max="5"
         placeholder="Stars quantity (1~5)"
         className="form-control w-75"
-        {...register('stars', { required: 'You must set stars for the new hotel' })}
+        {...register('stars', {
+          required: 'You must set stars for the new hotel',
+        })}
       />
       {errors.stars && <ErrorMsg message={errors.stars.message} cName="w-75" />}
       <input

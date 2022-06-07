@@ -10,11 +10,13 @@ import logo from '../../assets/images/logo.png';
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+  const { pathname } = window.location;
+  const burgerColor = pathname === '/' ? '#fff' : '#000';
 
   return (
     <>
       <IconContext.Provider value={{ color: '#FBBC05' }}>
-        <IconContext.Provider value={{ color: '#fff' }}>
+        <IconContext.Provider value={{ color: burgerColor }}>
           <div className={style.menu}>
             <FaIcons.FaBars onClick={showSidebar} />
           </div>
