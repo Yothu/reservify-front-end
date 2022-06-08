@@ -14,7 +14,7 @@ const HotelDetails = (props) => {
   }, []);
 
   return (
-    <div className="details-container pt-5 d-sm-flex position-relative">
+    <div className="details-container pt-5 d-sm-flex position-relative justify-content-between">
       <div className="d-flex flex-column align-items-center">
         {hotel && (
           <>
@@ -35,6 +35,7 @@ const HotelDetails = (props) => {
         )}
       </div>
       <div className="hotel-details d-flex flex-column">
+        <h5>Info</h5>
         <table className="table details-table">
           <tbody>
             <tr>

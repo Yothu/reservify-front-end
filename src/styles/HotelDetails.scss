@@ -1,6 +1,11 @@
+h5 {
+  padding-inline-start: 0.5rem;
+}
+
 .hotel-thumbnail {
   min-height: 200px;
   min-width: 60vw;
+  max-width: 800px;
   text-align: center;
 
   .hotel-image {
@@ -31,5 +36,10 @@
 @media only screen and (min-width: 576px) {
   .back-hotels {
     bottom: 0;
+  }
+
+  .hotel-details {
+    align-self: center;
+    width: 40vw;
   }
 }
