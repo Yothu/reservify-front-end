@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Base URL for the API
-const API_URL = 'http://localhost:3000/api/users/';
+const API_URL = 'http://localhost:3000/users/';
 
 // Register user
 const register = async (userData) => {
@@ -10,6 +10,8 @@ const register = async (userData) => {
   // NOTE: when we use axios it actually puts the data inside of an object called response.data
   // so, I am going to check if there is data
   // and I am going to set our local storage to the data that will include our token.
+
+  console.log(response.headers.authentication);
 
   if (response.data) {
     localStorage.setItem('user', JSON.stringify(response.data));

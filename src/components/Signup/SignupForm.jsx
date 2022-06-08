@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { Oval } from 'react-loader-spinner';
+import { toast } from 'react-toastify';
 import Button from '../Ui/Button';
 import ErrorMsg from '../Ui/ErrorMsg';
 import { userRegister, reset } from '../../redux/auth/auth-slice';
@@ -31,21 +33,26 @@ const SignupForm = () => {
 
   useEffect(() => {
     if (isError) {
-      console.log(message);
+      toast.error(message);
     }
     if (isSuccess || user) {
+      toast.success('Successfully registered');
       navigate('/main');
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onSubmit = (data) => {
-    console.log(data);
-    dispatch(userRegister(data));
+    const user = { user: { ...data } };
+    dispatch(userRegister(user));
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="d-flex justify-content-center">
+        <Oval color="#FBBC05" height={250} width={250} />
+      </div>
+    );
   }
 
   return (
