@@ -11,7 +11,7 @@ const register = async (userData) => {
   // so, I am going to check if there is data
   // and I am going to set our local storage to the data that will include our token.
 
-  console.log(response.headers.authentication);
+  console.log(response.data);
 
   if (response.data) {
     localStorage.setItem('user', JSON.stringify(response.data));

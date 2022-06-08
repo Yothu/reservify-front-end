@@ -1,5 +1,7 @@
-import { React, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
+import { useDispatch } from 'react-redux';
+import getHotels from '../../redux/hotels/hotel-services';
 import HotelCard from './HotelCard';
 import HotelsData from './HotelsData';
 import style from './MainSlider.module.css';
@@ -25,6 +27,16 @@ const MainSlider = () => {
     slider.current.style.transform = `translateX(${-size * c}px)`;
     setCounter(c);
   };
+
+  const dispatch = useDispatch();
+
+  let flag = false;
+
+  useEffect(() => {
+    if (flag) return;
+    dispatch(getHotels());
+    flag = true;
+  }, [dispatch]);
 
   return (
     <>

@@ -1,32 +1,34 @@
-import axios from 'axios';
-// import { fetchHotels } from './hotel-slice';
+// import axios from 'axios';
+import { fetchHotels } from './hotel-slice';
 
 // Base URL for the API
-const API_URL = 'https://reservify-app.herokuapp.com/hotels';
+// const API_URL = 'https://reservify-app.herokuapp.com/hotels';
 
 // Fetch all hotels
-const getHotels = async () => {
-  const response = await axios.get(API_URL);
+const getHotels = () => async (dispatch) => {
+  // const response = await axios.get(API_URL);
+  // console.log(response.data);
 
-  // NOTE: when we use axios it actually puts the data inside of an object called response.data
-  // so, I am going to check if there is data
-  // and I am going to set our local storage to the data that will include our token.
+  const FAKE_DATA = [
+    {
+      id: 1,
+      name: 'Hotel 1',
+      country: 'Country 1',
+      city: 'City 1',
+      street: 'Street 1',
+      stars: 1,
+    },
+    {
+      id: 2,
+      name: 'Hotel 2',
+      country: 'Country 2',
+      city: 'City 2',
+      street: 'Street 2',
+      stars: 2,
+    },
+  ];
 
-  // console.log(response.headers.get('Authentication'));
-  console.log(response.data);
-
-  if (response.data) {
-    localStorage.setItem('hotels', JSON.stringify(response.data));
-  }
-
-  return response.data;
+  dispatch(fetchHotels(FAKE_DATA));
 };
 
-// Any function we create that we want to export we're just going to put it in
-// authService object. and then we're going to export it as default.
-
-const hotelService = {
-  getHotels,
-};
-
-export default hotelService;
+export default getHotels;
