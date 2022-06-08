@@ -64,13 +64,13 @@ const authSlice = createSlice({
     builder.addCase(userRegister.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isSuccess = true;
-      // Back to line 22 and 23 to remember to what action.payload is in this case
+      // Back to line 23 and 24 to remember to what action.payload is in this case
       state.user = action.payload;
     });
     builder.addCase(userRegister.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      // Back to line 26 and 27 to remember to what action.payload is in this case.
+      // Back to line 28 and 29 to remember to what action.payload is in this case.
       state.message = action.payload;
       state.user = null;
     });
