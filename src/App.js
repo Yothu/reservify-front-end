@@ -9,6 +9,7 @@ import Reserve from './pages/reserve/Reserve';
 import Hotels from './pages/Hotels';
 import HotelDetails from './pages/HotelDetails';
 import Main from './pages/main/Main';
+import MyReservations from './pages/MyReservations';
 import './App.css';
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/hotels" element={<Hotels hotels={hotels} />} />
           <Route path="/hotels/:id" element={<HotelDetails hotels={hotels} />} />
+          <Route path="/my_reservations" element={<MyReservations />} />
           <Route path="/add_hotel" element={<AddHotel />} />
           <Route path="/delete_hotel" element={<DeleteHotel />} />
         </Routes>
