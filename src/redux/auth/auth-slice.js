@@ -1,7 +1,3 @@
-/* 
- - CreateAsyncThunk for fetching user data from the server. 
- - It's not necessary to use it, you can use regular fetch if you want, but it's a better way.
-*/
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import authService from './auth-services';
 
@@ -13,13 +9,17 @@ const user = JSON.parse(localStorage.getItem('user'));
 // NOTE: I installed axios, so don't forget to install it. npm install.
 
 // Please check the auth-services.js file first.
+
+/* 
+ - createAsyncThunk is a function that takes in a name of the thunk and a function that returns a promise.
+ - It's not necessary to use it, you can use regular fetch if you want, but it's a better way to deal with async data.
+*/
 // Register user
-// createAsyncThunk is a function that takes in a name of the thunk and a function that returns a promise.
 export const register = createAsyncThunk(
   'auth/register',
   async (userData, thunkAPI) => {
     try {
-      // that will send the user data to the reducer as a payload.
+      // that will send the user data to the reducer as a payload. (back to line 4 to remember)
       return await authService.register(userData);
     } catch (error) {
       const message = error.response.data.message;
