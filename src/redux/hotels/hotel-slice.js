@@ -31,8 +31,11 @@ const hotelSlice = createSlice({
       // fetch data
       state.hotels.splice(state.hotels.findIndex((hotel) => hotel.id === action.payload.id), 1);
     },
+    fetchHotels(state, action) {
+      state.hotels = action.payload.hotel.hotels;
+    },
   },
 });
 
-export const { deleteHotel } = hotelSlice.actions;
+export const { deleteHotel, fetchHotels } = hotelSlice.actions;
 export default hotelSlice.reducer;
