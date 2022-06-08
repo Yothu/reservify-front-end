@@ -23,8 +23,12 @@ const register = async (userData) => {
 // Any function we create that we want to export we're just going to put it in
 // authService object. and then we're going to export it as default.
 
+// REMEMBER TO MAKE AN API REQUEST HERE
+const mockLogin = (userData) => userData;
+
 const authService = {
   register,
+  mockLogin,
 };
 
 export default authService;

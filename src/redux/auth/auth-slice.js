@@ -30,6 +30,18 @@ export const userRegister = createAsyncThunk('auth/register', async (userData, t
   }
 });
 
+export const userLogin = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
+  try {
+    // that will send the user data to the reducer as a payload. (back to line 4 to remember)
+    return await authService.mockLogin(userData);
+  } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message)
+      || error.message || error.toString();
+    // that will send the message to the reducer as a payload.
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
 const initialState = {
   // if user is in local storage, set it to state else set it to null
   user: user || null,
@@ -71,6 +83,18 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.isError = true;
       // Back to line 28 and 29 to remember to what action.payload is in this case.
+      state.message = action.payload;
+      state.user = null;
+    });
+    builder.addCase(userLogin.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(userLogin.fulfilled, (state, action) => {
+      state.user = action.payload;
+    });
+    builder.addCase(userLogin.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
       state.message = action.payload;
       state.user = null;
     });

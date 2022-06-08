@@ -1,5 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { userLogin } from '../../redux/auth/auth-slice';
 
 function LogIn() {
   const {
@@ -12,7 +14,12 @@ function LogIn() {
     },
   });
 
-  const onSubmit = (data) => console.log(data);
+  const dispatch = useDispatch();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(userLogin(data));
+  };
 
   return (
     <div className="d-flex flex-column align-items-center pt-5">
