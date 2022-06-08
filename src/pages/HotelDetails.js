@@ -45,6 +45,24 @@ const HotelDetails = (props) => {
             </tr>
           </tbody>
         </table>
+        
+        <h3>Featured Amenities</h3>
+        <table className="table amenities-table">
+          <tbody>
+            <tr>
+              <td>Jacob</td>
+              <td>Thor</td>
+              <td>Sam</td>
+              <td>Sam</td>
+            </tr>
+            <tr>
+              <td>Jacob</td>
+              <td>Thor</td>
+              <td>Thor</td>
+              <td>Sam</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <Link to="/hotels" className="back-hotels position-absolute pb-3">Back to Hotels</Link>
     </div>
