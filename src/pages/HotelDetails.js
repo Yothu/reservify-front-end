@@ -13,15 +13,40 @@ const HotelDetails = (props) => {
   }, []);
 
   return (
-    <div className="d-flex flex-column align-items-center">
-      {hotel && (
-      <h2>
-        Hotel:
-        {hotel.name}
-      </h2>
-      )}
-      <img src={hotel.image_url} alt="hotel thumbnail" width="50%" height="50%" className="hotel-thumbnail" />
-      <Link to="/hotels">Back to Hotels</Link>
+    <div className="details-container pt-5 d-sm-flex position-relative">
+      <div className="d-flex flex-column align-items-center">
+        {hotel && (
+          <>
+            <h2>
+              Hotel:
+              {hotel.name}
+            </h2>
+            <div className="hotel-thumbnail">
+              <img src={hotel.image_url} alt="hotel thumbnail" width="75%" height="auto" className="hotel-image" />
+            </div>
+          </>
+        )}
+      </div>
+      <div className="hotel-details d-flex flex-column">
+        <h3>Name</h3>
+        <table className="table details-table">
+          <tbody>
+            <tr>
+              <th scope="row">Address</th>
+              <td>Jacob</td>
+            </tr>
+            <tr>
+              <th scope="row">City</th>
+              <td>Thor</td>
+            </tr>
+            <tr>
+              <th scope="row">Country</th>
+              <td>Sam</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <Link to="/hotels" className="back-hotels position-absolute pb-3">Back to Hotels</Link>
     </div>
   );
 };
