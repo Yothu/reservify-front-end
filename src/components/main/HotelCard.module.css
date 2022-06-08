@@ -1,0 +1,42 @@
+.card {
+  min-width: 20rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card img {
+  min-width: 100%;
+  border-radius: 0.5rem;
+}
+
+.card-details {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-details h5 {
+  color: var(--gray-dark);
+  text-align: center;
+}
+
+.card ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.card ul li {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 2px solid var(--bg-gray);
+  border-radius: 50%;
+}
+
+.card ul li:hover {
+  background-color: var(--green);
+}

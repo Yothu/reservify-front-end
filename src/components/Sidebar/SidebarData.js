@@ -17,17 +17,17 @@ const SidebarData = [
   },
   {
     title: 'Add Hotel',
-    path: '/',
+    path: '/add_hotel',
     icon: <AiIcons.AiFillFileAdd />,
   },
   {
     title: 'Delete Hotel',
-    path: '/',
+    path: '/delete_hotel',
     icon: <AiIcons.AiFillDelete />,
   },
   {
     title: 'Login',
-    path: '/',
+    path: '/login',
     icon: <RiIcons.RiLoginBoxLine />,
   },
   {

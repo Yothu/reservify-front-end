@@ -1,0 +1,36 @@
+.delete-table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 75%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.delete-table thead tr {
+  background-color: var(--green);
+  color: #fff;
+  text-align: left;
+}
+
+.delete-table th,
+.delete-table td {
+  padding: 0.75rem 1rem;
+}
+
+.delete-table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.delete-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.delete-table tbody tr:last-of-type {
+  border-bottom: 2px solid var(--green);
+}
+
+.delete-table tbody tr.active-row {
+  font-weight: bold;
+  color: var(--green);
+}

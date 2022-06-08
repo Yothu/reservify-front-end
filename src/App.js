@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
+import DeleteHotel from './pages/admin/deleteHotel/DeleteHotel';
 import SplashScreen from './pages/registration/SplashScreen';
 import Signup from './pages/registration/signup/Signup';
+import AddHotel from './pages/admin/addHotel/AddHotel';
 import Sidebar from './components/Sidebar/Sidebar';
 import LogIn from './pages/registration/LogIn';
 import Reserve from './pages/reserve/Reserve';
-
 import Hotels from './pages/Hotels';
 import HotelDetails from './pages/HotelDetails';
-
+import Main from './pages/main/Main';
 import './App.css';
 
 function App() {
@@ -61,13 +62,14 @@ function App() {
       <main className="page">
         <Routes>
           <Route path="/" element={<SplashScreen />} />
+          <Route path="/main" element={<Main />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/reserve" element={<Reserve />} />
-
           <Route path="/hotels" element={<Hotels hotels={hotels} />} />
           <Route path="/hotels/:id" element={<HotelDetails hotels={hotels} />} />
-
+          <Route path="/add_hotel" element={<AddHotel />} />
+          <Route path="/delete_hotel" element={<DeleteHotel />} />
         </Routes>
       </main>
     </>
