@@ -11,7 +11,7 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { pathname } = window.location;
-  const burgerColor = pathname === '/' ? '#fff' : '#000';
+  const burgerColor = pathname === '/' ? '#FFF' : '#000';
 
   return (
     <>
