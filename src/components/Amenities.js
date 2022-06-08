@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 
 const Amenities = (props) => {
   const { amenities } = props;
+  const amenitiesArr = amenities ? Object.entries(amenities) : [];
+  const availableArr = amenitiesArr.filter(([key, value]) => value === true && typeof key === 'string');
+  const available = Object.fromEntries(availableArr);
   let result = '';
 
   return (
     <table className="table amenities-table">
       <tbody>
-        {amenities && Object.keys(amenities).map((amenity, index, array) => {
+        {amenities && Object.keys(available).map((amenity, index, array) => {
           if (index === 0 || index % 3 === 0) {
             result += '<tr>';
           }
