@@ -45,7 +45,7 @@ const HotelDetails = (props) => {
             </tr>
           </tbody>
         </table>
-        
+
         <h3>Featured Amenities</h3>
         <table className="table amenities-table">
           <tbody>

@@ -2,6 +2,7 @@
   min-height: 200px;
   min-width: 60vw;
   text-align: center;
+
   .hotel-image {
     border-radius: 50%;
   }
@@ -9,22 +10,24 @@
 
 .hotel-details {
   color: gray;
+
   .details-table {
     background-color: lightgoldenrodyellow;
   }
+
   .amenities-table {
     background-color: lightslategray;
   }
 }
 
-@media only screen and (max-width : 576px) {
+@media only screen and (max-width: 576px) {
   .back-hotels {
     top: 0;
     margin-top: 70px;
   }
 }
 
-@media only screen and (min-width : 576px) {
+@media only screen and (min-width: 576px) {
   .back-hotels {
     bottom: 0;
   }
