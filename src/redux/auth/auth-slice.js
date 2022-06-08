@@ -15,7 +15,7 @@ const user = JSON.parse(localStorage.getItem('user'));
  - It's not necessary to use it, you can use regular fetch if you want, but it's a better way to deal with async data.
 */
 // Register user
-export const register = createAsyncThunk(
+export const userRegister = createAsyncThunk(
   'auth/register',
   async (userData, thunkAPI) => {
     try {
@@ -57,16 +57,16 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(register.pending, (state) => {
+    builder.addCase(userRegister.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(register.fulfilled, (state, action) => {
+    builder.addCase(userRegister.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isSuccess = true;
       // Back to line 22 and 23 to remember to what action.payload is in this case
       state.user = action.payload;
     });
-    builder.addCase(register.rejected, (state, action) => {
+    builder.addCase(userRegister.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
       // Back to line 26 and 27 to remember to what action.payload is in this case.

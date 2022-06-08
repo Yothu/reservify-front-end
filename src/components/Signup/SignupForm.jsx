@@ -1,7 +1,10 @@
-import React, { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Button from '../Ui/Button';
 import ErrorMsg from '../Ui/ErrorMsg';
+import { userRegister, reset } from '../../redux/auth/auth-slice';
 
 const SignupForm = () => {
   const {
@@ -14,9 +17,36 @@ const SignupForm = () => {
   const password = useRef({});
   password.current = watch('password');
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // prettier-ignore
+  const {
+    user,
+    isLoading,
+    isSuccess,
+    isError,
+    message,
+  } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+    if (isSuccess || user) {
+      navigate('/main');
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(userRegister(data));
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <form
