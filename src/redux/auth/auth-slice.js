@@ -4,34 +4,34 @@ import authService from './auth-services';
 // Get user from local storage
 const user = JSON.parse(localStorage.getItem('user'));
 
-// I added a service file to handle the http request. Again It's not neccessary but I think it's nice to break it up and have a service that does all of the http request.
+// I added a service file to handle the http request.
+// It's not neccessary but I think it's nice to break it up
+// and have a service that does all of the http request.
 
 // NOTE: I installed axios, so don't forget to install it. npm install.
 
 // Please check the auth-services.js file first.
 
-/* 
- - createAsyncThunk is a function that takes in a name of the thunk and a function that returns a promise.
- - It's not necessary to use it, you can use regular fetch if you want, but it's a better way to deal with async data.
-*/
-// Register user
-export const userRegister = createAsyncThunk(
-  'auth/register',
-  async (userData, thunkAPI) => {
-    try {
-      // that will send the user data to the reducer as a payload. (back to line 4 to remember)
-      return await authService.register(userData);
-    } catch (error) {
-      const message = error.response.data.message;
-      // that will send the message to the reducer as a payload.
-      return thunkAPI.rejectWithValue(message);
-    }
+// createAsyncThunk is a function that takes in a name of the thunk "string"
+// and a function that returns a promise.
+// It's not necessary to use it, you can use regular fetch if you want,
+// but it's a better way to deal with async data.
+
+// prettier-ignore
+export const userRegister = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
+  try {
+    // that will send the user data to the reducer as a payload. (back to line 4 to remember)
+    return await authService.register(userData);
+  } catch (error) {
+    const { message } = error.response.data;
+    // that will send the message to the reducer as a payload.
+    return thunkAPI.rejectWithValue(message);
   }
-);
+});
 
 const initialState = {
   // if user is in local storage, set it to state else set it to null
-  user: user ? user : null,
+  user: user || null,
   // for error handling
   isError: false,
   // for success message
@@ -79,12 +79,10 @@ const authSlice = createSlice({
 export const { reset } = authSlice.actions;
 export default authSlice.reducer;
 
-/*
-If you go to devtools->redux->state->auth, you should see the state of 
-auth contains: 
-                  user:null, 
-                  isError:false
-                  isSuccess:false
-                  isLoading:false
-                  message:''
-*/
+// If you go to devtools->redux->state->auth, you should see the state of
+// auth contains:
+//                   user:null,
+//                   isError:false
+//                   isSuccess:false
+//                   isLoading:false
+//                   message:''
