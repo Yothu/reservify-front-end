@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 // Base URL for the API
-const API_URL = 'http://localhost:3000/users/';
+const API_URL = 'https://reservify-app.herokuapp.com/';
 
 // Register user
 const register = async (userData) => {
-  const response = await axios.post(API_URL, userData);
+  const response = await axios.post(`${API_URL}users/`, userData);
 
   // NOTE: when we use axios it actually puts the data inside of an object called response.data
   // so, I am going to check if there is data
@@ -13,9 +13,9 @@ const register = async (userData) => {
 
   console.log(response.data);
 
-  if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data));
-  }
+  // if (response.data) {
+  //   localStorage.setItem('user', JSON.stringify(response.data));
+  // }
 
   return response.data;
 };
@@ -24,11 +24,20 @@ const register = async (userData) => {
 // authService object. and then we're going to export it as default.
 
 // REMEMBER TO MAKE AN API REQUEST HERE
-const mockLogin = (userData) => userData;
+const login = async (userData) => {
+  const response = await axios.post(`${API_URL}auth/login`, userData);
+
+  if (response.data) {
+    localStorage.setItem('user', JSON.stringify(response.data.token));
+  }
+
+  console.log(response.data);
+  return response.data;
+};
 
 const authService = {
   register,
-  mockLogin,
+  login,
 };
 
 export default authService;
