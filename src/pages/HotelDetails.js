@@ -1,5 +1,5 @@
-import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styles/HotelDetails.scss';
 import Amenities from '../components/Amenities';
@@ -9,7 +9,13 @@ const HotelDetails = (props) => {
   const { hotels } = props;
   const [hotel, setHotel] = useState(false);
 
+  const isLoggedIn = localStorage.getItem('USER') || false;
+  const navigate = useNavigate();
+
   useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/');
+    }
     setHotel(hotels.filter((hotel) => hotel.id === id)[0]);
   }, []);
 
@@ -20,11 +26,16 @@ const HotelDetails = (props) => {
           <>
             <h2>
               Hotel:
-              {' '}
               {hotel.name}
             </h2>
             <div className="hotel-thumbnail">
-              <img src={hotel.image_url} alt="hotel thumbnail" width="75%" height="auto" className="hotel-image" />
+              <img
+                src={hotel.image_url}
+                alt="hotel thumbnail"
+                width="75%"
+                height="auto"
+                className="hotel-image"
+              />
             </div>
             <p>
               Price:
@@ -56,7 +67,9 @@ const HotelDetails = (props) => {
         <h5>Featured Amenities</h5>
         <Amenities amenities={hotel.amenities} />
       </div>
-      <Link to="/hotels" className="back-hotels position-absolute pb-3">Back to Hotels</Link>
+      <Link to="/hotels" className="back-hotels position-absolute pb-3">
+        Back to Hotels
+      </Link>
     </div>
   );
 };

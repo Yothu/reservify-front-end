@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { DateTime } from 'luxon';
 
 const MyReservations = () => {
+  const isLoggedIn = localStorage.getItem('USER') || false;
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/');
+    }
+  }, []);
   const reservations = [
     {
       id: '1',
@@ -21,7 +30,12 @@ const MyReservations = () => {
   ];
 
   reservations.forEach((reservation) => {
-    reservation.duration = reservation.end_date.diff(reservation.start_date, ['years', 'months', 'days', 'hours']).days;
+    reservation.duration = reservation.end_date.diff(reservation.start_date, [
+      'years',
+      'months',
+      'days',
+      'hours',
+    ]).days;
   });
 
   return (
@@ -34,9 +48,13 @@ const MyReservations = () => {
             <tr>
               <th scope="col">Hotel Name</th>
               <th scope="col">Price</th>
-              <th scope="col" className="d-none d-sm-block">Stars</th>
+              <th scope="col" className="d-none d-sm-block">
+                Stars
+              </th>
               <th scope="col">Check-in</th>
-              <th scope="col" className="d-none d-sm-block">Check-out</th>
+              <th scope="col" className="d-none d-sm-block">
+                Check-out
+              </th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -50,15 +68,20 @@ const MyReservations = () => {
                 </td>
                 <td className="d-none d-sm-table-cell">{reservation.stars}</td>
                 <td>{reservation.start_date.toLocaleString()}</td>
-                <td className="d-none d-sm-table-cell">{reservation.end_date.toLocaleString()}</td>
-                <td><button type="button" className="btn btn-outline-danger">Cancel</button></td>
+                <td className="d-none d-sm-table-cell">
+                  {reservation.end_date.toLocaleString()}
+                </td>
+                <td>
+                  <button type="button" className="btn btn-outline-danger">
+                    Cancel
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </>
-
   );
 };
 
