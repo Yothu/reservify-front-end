@@ -1,7 +1,10 @@
-import React from 'react';
+import { toast } from 'react-toastify';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { userLogin } from '../../redux/auth/auth-slice';
+import { Oval } from 'react-loader-spinner';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogin, reset } from '../../redux/auth/auth-slice';
 
 function LogIn() {
   const {
@@ -14,12 +17,40 @@ function LogIn() {
     },
   });
 
+  const {
+    user,
+    isLoading,
+    isSuccess,
+    isError,
+    message,
+  } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      toast.success('Successfully registered');
+      navigate('/main');
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onSubmit = (data) => {
     console.log(data);
     dispatch(userLogin(data));
   };
+
+  if (isLoading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <Oval color="#FBBC05" height={250} width={250} />
+      </div>
+    );
+  }
 
   return (
     <div className="d-flex flex-column align-items-center pt-5">
