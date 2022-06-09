@@ -33,7 +33,7 @@ function LogIn() {
       toast.error(message);
     }
     if (isSuccess || user) {
-      toast.success('Successfully registered');
+      toast.success('Successfully logged in');
       navigate('/main');
     }
     dispatch(reset());

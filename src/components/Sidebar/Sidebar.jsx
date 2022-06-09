@@ -3,15 +3,26 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
+import { useDispatch } from 'react-redux';
+import * as RiIcons from 'react-icons/ri';
 import SidebarData from './SidebarData';
 import style from './Sidebar.module.css';
 import logo from '../../assets/images/logo.png';
+import authService from '../../redux/auth/auth-services';
+import { reset } from '../../redux/auth/auth-slice';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { pathname } = window.location;
   const burgerColor = pathname === '/' ? '#FFF' : '#000';
+
+  const dispatch = useDispatch();
+
+  const userLogout = () => {
+    dispatch(authService.logout);
+    dispatch(reset());
+  };
 
   return (
     <>
@@ -47,6 +58,12 @@ function Navbar() {
                 </Link>
               </li>
             ))}
+            <li role="presentation" className={style.navText}>
+              <Link to="/" onClick={userLogout}>
+                <RiIcons.RiLogoutBoxLine />
+                <span>Logout</span>
+              </Link>
+            </li>
           </ul>
           <IconContext.Provider value={{ color: '#98be0f' }}>
             <ul className={style.social}>

@@ -35,11 +35,6 @@ const SidebarData = [
     path: '/signup',
     icon: <AiIcons.AiOutlineLogin />,
   },
-  {
-    title: 'Logout',
-    path: '/',
-    icon: <RiIcons.RiLogoutBoxLine />,
-  },
 ];
 
 export default SidebarData;
