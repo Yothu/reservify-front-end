@@ -1,9 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import getHotels from '../../redux/hotels/hotel-services';
 import HotelCard from './HotelCard';
-import HotelsData from './HotelsData';
 import style from './MainSlider.module.css';
 
 const MainSlider = () => {
@@ -12,9 +11,10 @@ const MainSlider = () => {
   const leftArrow = useRef();
   const [counter, setCounter] = useState(0);
   const size = 340;
+  const hotelData = useSelector((state) => state.hotel.hotels);
 
   const nextHandler = () => {
-    if (counter === HotelsData.length - 1) return;
+    if (counter === hotelData.length - 1) return;
     slider.current.style.transition = 'transform 0.4s ease-in-out';
     const c = counter + 1;
     slider.current.style.transform = `translateX(${-size * c}px)`;
@@ -42,10 +42,10 @@ const MainSlider = () => {
     <>
       <div className={style['slider-container']}>
         <div className={style.slider} ref={slider}>
-          {HotelsData.map((hotel) => (
+          {hotelData.map((hotel) => (
             <HotelCard
               key={hotel.id}
-              image={hotel.image}
+              image={hotel.image_url}
               name={hotel.name}
               description={hotel.description}
             />
