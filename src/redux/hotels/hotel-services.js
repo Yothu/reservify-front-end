@@ -1,34 +1,28 @@
-// import axios from 'axios';
+import axios from 'axios';
 import { fetchHotels } from './hotel-slice';
 
 // Base URL for the API
-// const API_URL = 'https://reservify-app.herokuapp.com/hotels';
+const API_URL = 'https://reservify-app.herokuapp.com/api/v1/';
 
 // Fetch all hotels
 const getHotels = () => async (dispatch) => {
-  // const response = await axios.get(API_URL);
-  // console.log(response.data);
-
-  const FAKE_DATA = [
-    {
-      id: 1,
-      name: 'Hotel 1',
-      country: 'Country 1',
-      city: 'City 1',
-      street: 'Street 1',
-      stars: 1,
+  const response = await axios.get(`${API_URL}hotels`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
     },
-    {
-      id: 2,
-      name: 'Hotel 2',
-      country: 'Country 2',
-      city: 'City 2',
-      street: 'Street 2',
-      stars: 2,
-    },
-  ];
+  });
 
-  dispatch(fetchHotels(FAKE_DATA));
+  try {
+    const result = await response.data;
+    console.log(result);
+    dispatch(fetchHotels(result));
+  } catch (error) {
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+    const message = (error.response && error.response.data && error.response.data.message)
+    || error.message || error.toString();
+    return message;
+  }
+  return true;
 };
 
 export default getHotels;
