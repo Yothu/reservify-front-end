@@ -33,7 +33,7 @@ export const userRegister = createAsyncThunk('auth/register', async (userData, t
 export const userLogin = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
   try {
     // that will send the user data to the reducer as a payload. (back to line 4 to remember)
-    return await authService.mockLogin(userData);
+    return await authService.login(userData);
   } catch (error) {
     const message = (error.response && error.response.data && error.response.data.message)
       || error.message || error.toString();
