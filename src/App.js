@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import DeleteHotel from './pages/admin/deleteHotel/DeleteHotel';
 import SplashScreen from './pages/registration/SplashScreen';
 import Signup from './pages/registration/signup/Signup';
@@ -10,6 +11,8 @@ import Hotels from './pages/Hotels';
 import HotelDetails from './pages/HotelDetails';
 import Main from './pages/main/Main';
 import MyReservations from './pages/MyReservations';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import './App.css';
 
 function App() {
@@ -63,16 +66,21 @@ function App() {
       <main className="page">
         <Routes>
           <Route path="/" element={<SplashScreen />} />
-          <Route path="/main" element={<Main />} />
+          {localStorage.getItem('USER') ? (
+            <>
+              <Route path="/main" element={<Main />} />
+              <Route path="/reserve" element={<Reserve />} />
+              <Route path="/hotels" element={<Hotels hotels={hotels} />} />
+              <Route path="/hotels/:id" element={<HotelDetails hotels={hotels} />} />
+              <Route path="/my_reservations" element={<MyReservations />} />
+              <Route path="/add_hotel" element={<AddHotel />} />
+              <Route path="/delete_hotel" element={<DeleteHotel />} />
+            </>
+          ) : <Route path="*" element={<SplashScreen />} /> }
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<LogIn />} />
-          <Route path="/reserve" element={<Reserve />} />
-          <Route path="/hotels" element={<Hotels hotels={hotels} />} />
-          <Route path="/hotels/:id" element={<HotelDetails hotels={hotels} />} />
-          <Route path="/my_reservations" element={<MyReservations />} />
-          <Route path="/add_hotel" element={<AddHotel />} />
-          <Route path="/delete_hotel" element={<DeleteHotel />} />
         </Routes>
+        <ToastContainer />
       </main>
     </>
   );

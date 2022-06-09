@@ -1,7 +1,12 @@
-import React, { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { Oval } from 'react-loader-spinner';
+import { toast } from 'react-toastify';
 import Button from '../Ui/Button';
 import ErrorMsg from '../Ui/ErrorMsg';
+import { userRegister, reset } from '../../redux/auth/auth-slice';
 
 const SignupForm = () => {
   const {
@@ -14,9 +19,42 @@ const SignupForm = () => {
   const password = useRef({});
   password.current = watch('password');
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // prettier-ignore
+  const {
+    user,
+    isLoading,
+    isSuccess,
+    isError,
+    message,
+  } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      toast.success('Successfully registered');
+      navigate('/login');
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const onSubmit = (data) => {
     console.log(data);
+    // const user = { user: { ...data } };
+    dispatch(userRegister(data));
   };
+
+  if (isLoading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <Oval color="#FBBC05" height={250} width={250} />
+      </div>
+    );
+  }
 
   return (
     <form
@@ -27,9 +65,9 @@ const SignupForm = () => {
         type="text"
         placeholder="Username"
         className="form-control w-75"
-        {...register('name', { required: 'Username is required' })}
+        {...register('username', { required: 'Username is required' })}
       />
-      {errors.name && <ErrorMsg message={errors.name.message} cName="w-75" />}
+      {errors.username && <ErrorMsg message={errors.username.message} cName="w-75" />}
       <input
         type="text"
         placeholder="Email"
