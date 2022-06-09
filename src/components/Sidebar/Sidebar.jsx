@@ -57,7 +57,8 @@ function Navbar() {
               </Link>
             </li>
 
-            {isAdmin && (
+            {
+            isAdmin && (
               <>
                 {' '}
                 <li className={style.navText}>
@@ -73,17 +74,19 @@ function Navbar() {
                   </Link>
                 </li>
               </>
-            )}
-            {!isAdmin &&
-              isLoggedIn &&
-              SidebarData.map((item) => (
+            )
+            }
+
+            {
+              !isAdmin && isLoggedIn && SidebarData.map((item) => (
                 <li key={item.title} className={style.navText}>
                   <Link to={item.path}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>
                 </li>
-              ))}
+              ))
+            }
 
             {isLoggedIn ? (
               <li className={style.navText}>
