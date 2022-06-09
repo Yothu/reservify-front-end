@@ -66,19 +66,15 @@ function App() {
       <main className="page">
         <Routes>
           <Route path="/" element={<SplashScreen />} />
-          {localStorage.getItem('USER') ? (
-            <>
-              <Route path="/main" element={<Main />} />
-              <Route path="/reserve" element={<Reserve />} />
-              <Route path="/hotels" element={<Hotels hotels={hotels} />} />
-              <Route path="/hotels/:id" element={<HotelDetails hotels={hotels} />} />
-              <Route path="/my_reservations" element={<MyReservations />} />
-              <Route path="/add_hotel" element={<AddHotel />} />
-              <Route path="/delete_hotel" element={<DeleteHotel />} />
-            </>
-          ) : <Route path="*" element={<SplashScreen />} /> }
+          <Route path="/main" element={<Main />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/hotels" element={<Hotels hotels={hotels} />} />
+          <Route path="/hotels/:id" element={<HotelDetails hotels={hotels} />} />
+          <Route path="/my_reservations" element={<MyReservations />} />
+          <Route path="/add_hotel" element={<AddHotel />} />
+          <Route path="/delete_hotel" element={<DeleteHotel />} />
         </Routes>
         <ToastContainer />
       </main>

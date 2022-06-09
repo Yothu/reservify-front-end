@@ -34,6 +34,7 @@ function LogIn() {
     }
     if (isSuccess || user) {
       toast.success('Successfully logged in');
+      navigate('/main');
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
@@ -41,7 +42,6 @@ function LogIn() {
   const onSubmit = (data) => {
     console.log(data);
     dispatch(userLogin(data));
-    navigate('/main');
   };
 
   if (isLoading) {
