@@ -37,14 +37,15 @@ const SignupForm = () => {
     }
     if (isSuccess || user) {
       toast.success('Successfully registered');
-      navigate('/main');
+      navigate('/login');
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onSubmit = (data) => {
-    const user = { user: { ...data } };
-    dispatch(userRegister(user));
+    console.log(data);
+    // const user = { user: { ...data } };
+    dispatch(userRegister(data));
   };
 
   if (isLoading) {
@@ -64,9 +65,9 @@ const SignupForm = () => {
         type="text"
         placeholder="Username"
         className="form-control w-75"
-        {...register('name', { required: 'Username is required' })}
+        {...register('username', { required: 'Username is required' })}
       />
-      {errors.name && <ErrorMsg message={errors.name.message} cName="w-75" />}
+      {errors.username && <ErrorMsg message={errors.username.message} cName="w-75" />}
       <input
         type="text"
         placeholder="Email"
