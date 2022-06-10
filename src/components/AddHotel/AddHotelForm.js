@@ -34,6 +34,12 @@ const AddHotelForm = () => {
         {...register('name', { required: 'Hotel name is required' })}
       />
       {errors.name && <ErrorMsg message={errors.name.message} cName="w-75" />}
+      <textarea
+        placeholder="Description"
+        className="form-control w-75"
+        {...register('description', { required: 'Description is required' })}
+      />
+      {errors.description && <ErrorMsg message={errors.description.message} cName="w-75" />}
       <div className="d-flex gap-2 w-75">
         <input
           type="text"
