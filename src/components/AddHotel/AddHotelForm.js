@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import Button from '../Ui/Button';
 import ErrorMsg from '../Ui/ErrorMsg';
+import hotelService from '../../redux/hotels/hotel-services';
 
 const AddHotelForm = () => {
   const {
@@ -10,7 +12,13 @@ const AddHotelForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const response = hotelService.addHotelToAPI(data);
+    if (response.ok) {
+      const { message } = response.data;
+      toast.success(message);
+    } else {
+      toast.error('Something went wrong');
+    }
   };
 
   return (

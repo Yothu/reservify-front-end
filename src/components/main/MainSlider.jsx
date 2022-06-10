@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import getHotels from '../../redux/hotels/hotel-services';
+import hotelService from '../../redux/hotels/hotel-services';
 import HotelCard from './HotelCard';
 import style from './MainSlider.module.css';
 
@@ -34,7 +34,7 @@ const MainSlider = () => {
 
   useEffect(() => {
     if (flag) return;
-    dispatch(getHotels());
+    dispatch(hotelService.getHotels());
     flag = true;
   }, [dispatch]);
 

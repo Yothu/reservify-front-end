@@ -17,7 +17,6 @@ const getHotels = () => async (dispatch) => {
     console.log(result);
     dispatch(fetchHotels(result));
   } catch (error) {
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
     const message = (error.response && error.response.data && error.response.data.message)
     || error.message || error.toString();
     return message;
@@ -25,4 +24,18 @@ const getHotels = () => async (dispatch) => {
   return true;
 };
 
-export default getHotels;
+const addHotelToAPI = async (data) => {
+  const response = await axios.post(`${API_URL}hotels`, data, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  });
+  return response;
+};
+
+const hotelService = {
+  getHotels,
+  addHotelToAPI,
+};
+
+export default hotelService;
