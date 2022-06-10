@@ -17,13 +17,15 @@ const getHotels = () => async (dispatch) => {
     console.log(result);
     dispatch(fetchHotels(result));
   } catch (error) {
+    // prettier-ignore
     const message = (error.response && error.response.data && error.response.data.message)
-    || error.message || error.toString();
+      || error.message || error.toString();
     return message;
   }
   return true;
 };
 
+// Add a new hotel
 const addHotelToAPI = async (data) => {
   const response = await axios.post(`${API_URL}hotels`, data, {
     headers: {
@@ -33,9 +35,21 @@ const addHotelToAPI = async (data) => {
   return response;
 };
 
+// Delete a hotel
+const deleteHotelFromAPI = async (id) => {
+  const response = await axios.delete(`${API_URL}hotels/${id}`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  });
+  window.location.reload();
+  return response;
+};
+
 const hotelService = {
   getHotels,
   addHotelToAPI,
+  deleteHotelFromAPI,
 };
 
 export default hotelService;
