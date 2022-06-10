@@ -58,39 +58,37 @@ const SignupForm = () => {
 
   return (
     <form
-      className="d-flex flex-column align-items-center gap-2"
+      className="d-flex flex-column align-items-center gap-2 container"
       onSubmit={handleSubmit(onSubmit)}
     >
       <input
         type="text"
         placeholder="Username"
-        className="form-control w-75"
+        className="form-control"
         {...register('username', { required: 'Username is required' })}
       />
-      {errors.username && <ErrorMsg message={errors.username.message} cName="w-75" />}
+      {errors.username && <ErrorMsg message={errors.username.message} />}
       <input
         type="text"
         placeholder="Email"
-        className="form-control w-75"
+        className="form-control"
         {...register('email', { required: 'Email is Required' })}
       />
-      {errors.email && <ErrorMsg message={errors.email.message} cName="w-75" />}
+      {errors.email && <ErrorMsg message={errors.email.message} />}
       <input
         type="password"
         placeholder="Password"
-        className="form-control w-75"
+        className="form-control"
         {...register('password', {
           required: 'Password is Required',
           minLength: { value: 6, message: 'Password is Too Short' },
         })}
       />
-      {errors.password && (
-        <ErrorMsg message={errors.password.message} cName="w-75" />
-      )}
+      {errors.password && <ErrorMsg message={errors.password.message} />}
       <input
         type="password"
         placeholder="Confim Password"
-        className="form-control w-75"
+        className="form-control"
         {...register('confirm_password', {
           validate: (value) => {
             if (value === password.current) return null;
@@ -99,7 +97,7 @@ const SignupForm = () => {
         })}
       />
       {errors.confirm_password && (
-        <ErrorMsg message={errors.confirm_password.message} cName="w-75" />
+        <ErrorMsg message={errors.confirm_password.message} />
       )}
       <Button type="submit" text="Signup" cName="mt-3" />
     </form>
