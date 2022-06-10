@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { DateTime } from 'luxon';
+import { useDispatch, useSelector } from 'react-redux';
 import reservationService from '../redux/reservations/reservation-services';
 
 const MyReservations = () => {
   const isLoggedIn = localStorage.getItem('USER') || false;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const reservations = useSelector((state) => state.reservation.reservations);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -15,33 +15,6 @@ const MyReservations = () => {
     }
     dispatch(reservationService.fetchReservations());
   }, []);
-  const reservations = [
-    {
-      id: '1',
-      name: 'Best Western',
-      price: 252.5,
-      stars: 4,
-      start_date: DateTime.local(2022, 6, 10, 17, 36),
-      end_date: DateTime.local(2022, 6, 15, 17, 36),
-    },
-    {
-      id: '2',
-      name: 'Wyndham',
-      price: 641.2,
-      stars: 5,
-      start_date: DateTime.local(2022, 7, 15, 17, 36),
-      end_date: DateTime.local(2022, 7, 21, 17, 36),
-    },
-  ];
-
-  reservations.forEach((reservation) => {
-    reservation.duration = reservation.end_date.diff(reservation.start_date, [
-      'years',
-      'months',
-      'days',
-      'hours',
-    ]).days;
-  });
 
   return (
     <>
@@ -66,15 +39,13 @@ const MyReservations = () => {
           <tbody>
             {reservations.map((reservation) => (
               <tr key={reservation.id}>
-                <td>{reservation.name}</td>
                 <td>
-                  $
-                  {reservation.price}
+                  {reservation.room_number}
                 </td>
                 <td className="d-none d-sm-table-cell">{reservation.stars}</td>
-                <td>{reservation.start_date.toLocaleString()}</td>
+                <td>{reservation.check_in_date.toLocaleString()}</td>
                 <td className="d-none d-sm-table-cell">
-                  {reservation.end_date.toLocaleString()}
+                  {reservation.check_out_date.toLocaleString()}
                 </td>
                 <td>
                   <button type="button" className="btn btn-outline-danger">

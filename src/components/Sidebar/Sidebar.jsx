@@ -14,8 +14,6 @@ import { reset } from '../../redux/auth/auth-slice';
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  const { pathname } = window.location;
-  const burgerColor = pathname === '/' ? '#FFF' : '#000';
 
   const dispatch = useDispatch();
 
@@ -34,7 +32,7 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#FBBC05' }}>
-        <IconContext.Provider value={{ color: burgerColor }}>
+        <IconContext.Provider value={{ color: '#000' }}>
           <div className={style.menu}>
             <FaIcons.FaBars onClick={showSidebar} />
           </div>
