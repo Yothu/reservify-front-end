@@ -12,6 +12,7 @@ const AddHotelForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
     const response = hotelService.addHotelToAPI(data);
     if (response.ok) {
       const { message } = response.data;
@@ -78,7 +79,7 @@ const AddHotelForm = () => {
         min="1"
         placeholder="Room quantity"
         className="form-control w-75"
-        {...register('rooms', { required: 'Room quantity is required' })}
+        {...register('number_of_rooms', { required: 'Room quantity is required' })}
       />
       {errors.rooms && <ErrorMsg message={errors.rooms.message} cName="w-75" />}
       <input
@@ -87,7 +88,7 @@ const AddHotelForm = () => {
         placeholder="Price of a room"
         min="1"
         className="form-control w-75"
-        {...register('price', { required: 'Room price is required' })}
+        {...register('room_price', { required: 'Room price is required' })}
       />
       {errors.price && <ErrorMsg message={errors.price.message} cName="w-75" />}
       <Button type="submit" text="Add Hotel" cName="mt-3" />
