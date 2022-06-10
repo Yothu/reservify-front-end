@@ -97,6 +97,40 @@ const AddHotelForm = () => {
         {...register('room_price', { required: 'Room price is required' })}
       />
       {errors.price && <ErrorMsg message={errors.price.message} cName="w-75" />}
+      <div className="amenities-container d-flex justify-content-between w-75">
+        <label htmlFor="pet-friendly">
+          Pet Friendly
+          <input
+            type="checkbox"
+            // name="pet_friendly"
+            {...register('pet_friendly')}
+          />
+        </label>
+        <label htmlFor="wifi">
+          Wifi
+          <input
+            type="checkbox"
+            // name="pet_friendly"
+            {...register('wifi')}
+          />
+        </label>
+        <label htmlFor="air-conditioning">
+          Air Conditioning
+          <input
+            type="checkbox"
+            // name="pet_friendly"
+            {...register('air_conditioning')}
+          />
+        </label>
+        <label htmlFor="public-pool">
+          Public Pool
+          <input
+            type="checkbox"
+            // name="pet_friendly"
+            {...register('public_pool')}
+          />
+        </label>
+      </div>
       <Button type="submit" text="Add Hotel" cName="mt-3" />
     </form>
   );
