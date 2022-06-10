@@ -10,6 +10,7 @@ const DeleteHotel = () => {
       navigate('/');
     }
   }, []);
+
   return (
     <section className="h-100 d-flex flex-column align-items-center">
       <div className="text-center my-5">
