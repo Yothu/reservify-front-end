@@ -37,15 +37,18 @@ const MyReservations = () => {
             </tr>
           </thead>
           <tbody>
-            {reservations.map((reservation) => (
-              <tr key={reservation.id}>
+            {reservations.map((r) => (
+              <tr key={r.reservation.id}>
                 <td>
-                  {reservation.room_number}
+                  {r.hotel.name}
                 </td>
-                <td className="d-none d-sm-table-cell">{reservation.stars}</td>
-                <td>{reservation.check_in_date.toLocaleString()}</td>
+                <td className="d-none d-sm-table-cell">{r.hotel.room_price}</td>
+                <td>
+                  {r.hotel.stars}
+                </td>
+                <td>{r.reservation.check_in_date.toLocaleString()}</td>
                 <td className="d-none d-sm-table-cell">
-                  {reservation.check_out_date.toLocaleString()}
+                  {r.reservation.check_out_date.toLocaleString()}
                 </td>
                 <td>
                   <button type="button" className="btn btn-outline-danger">
