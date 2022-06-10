@@ -1,14 +1,19 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { DateTime } from 'luxon';
+import reservationService from '../redux/reservations/reservation-services';
 
 const MyReservations = () => {
   const isLoggedIn = localStorage.getItem('USER') || false;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (!isLoggedIn) {
       navigate('/');
     }
+    dispatch(reservationService.fetchReservations());
   }, []);
   const reservations = [
     {
