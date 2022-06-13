@@ -13,8 +13,7 @@ const fetchCountries = () => async (dispatch) => {
   const response = await axios.get(`${API_URL}countries`, config);
   try {
     const result = await response.data;
-    const allCountries = result.map((el) => el.country);
-    dispatch(getCountries(allCountries));
+    dispatch(getCountries(result));
   } catch (error) {
     // prettier-ignore
     const message = (error.response && error.response.data && error.response.data.message)

@@ -49,8 +49,12 @@ function ReserveForm() {
     </option>
   ));
 
+  const handleSubmit = (e) => {
+    console.log(e);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <Select func={handleCountry} text="Country">
         {countriesOptions}
       </Select>
