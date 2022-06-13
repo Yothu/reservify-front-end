@@ -15,6 +15,7 @@ const fetchReservations = () => async (dispatch) => {
     console.log(result);
     dispatch(getReservations(result));
   } catch (error) {
+    // prettier-ignore
     const message = (error.response && error.response.data && error.response.data.message)
       || error.message || error.toString();
     return message;
@@ -22,8 +23,27 @@ const fetchReservations = () => async (dispatch) => {
   return true;
 };
 
+const cancelReservation = (id) => async (dispatch) => {
+  const response = await axios.delete(`${API_URL}reservations/${id}`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  });
+  try {
+    const result = await response.data;
+    await fetchReservations()(dispatch);
+    return result.message;
+  } catch (error) {
+    // prettier-ignore
+    const message = (error.response && error.response.data && error.response.data.message)
+      || error.message || error.toString();
+    return message;
+  }
+};
+
 const reservationService = {
   fetchReservations,
+  cancelReservation,
 };
 
 export default reservationService;

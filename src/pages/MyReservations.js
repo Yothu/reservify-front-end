@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert';
 import reservationService from '../redux/reservations/reservation-services';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const MyReservations = () => {
   const isLoggedIn = localStorage.getItem('USER') || false;
@@ -14,7 +16,26 @@ const MyReservations = () => {
       navigate('/');
     }
     dispatch(reservationService.fetchReservations());
-  }, []);
+  }, [dispatch, isLoggedIn, navigate]);
+
+  const handleDelete = (id) => {
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure you want to cancel this reservation.',
+      buttons: [
+        {
+          label: 'Confirm',
+          onClick: () => {
+            dispatch(reservationService.cancelReservation(id));
+          },
+        },
+        {
+          label: 'Cancel',
+          onClick: () => null,
+        },
+      ],
+    });
+  };
 
   return (
     <>
@@ -39,19 +60,19 @@ const MyReservations = () => {
           <tbody>
             {reservations.map((r) => (
               <tr key={r.reservation.id}>
-                <td>
-                  {r.hotel.name}
-                </td>
+                <td>{r.hotel.name}</td>
                 <td className="d-none d-sm-table-cell">{r.hotel.room_price}</td>
-                <td>
-                  {r.hotel.stars}
-                </td>
-                <td>{r.reservation.check_in_date.toLocaleString()}</td>
+                <td>{r.hotel.stars}</td>
+                <td>{r.reservation.check_in_date}</td>
                 <td className="d-none d-sm-table-cell">
-                  {r.reservation.check_out_date.toLocaleString()}
+                  {r.reservation.check_out_date}
                 </td>
                 <td>
-                  <button type="button" className="btn btn-outline-danger">
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger"
+                    onClick={() => handleDelete(r.reservation.id)}
+                  >
                     Cancel
                   </button>
                 </td>
