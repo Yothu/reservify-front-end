@@ -57,8 +57,7 @@ function Navbar() {
               </Link>
             </li>
 
-            {
-            isAdmin && (
+            {isAdmin && (
               <>
                 {' '}
                 <li className={style.navText}>
@@ -74,10 +73,9 @@ function Navbar() {
                   </Link>
                 </li>
               </>
-            )
-            }
-
+            )}
             {
+              // prettier-ignore
               !isAdmin && isLoggedIn && SidebarData.map((item) => (
                 <li key={item.title} className={style.navText}>
                   <Link to={item.path}>

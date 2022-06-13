@@ -20,7 +20,8 @@ function App() {
     {
       id: '1',
       name: 'Hilton',
-      image_url: 'https://drive.google.com/uc?export=view&id=1bYXrlSNGpLJF9TlY-2mRBphA0zVpz93w',
+      image_url:
+        'https://drive.google.com/uc?export=view&id=1bYXrlSNGpLJF9TlY-2mRBphA0zVpz93w',
       address: 'Street 1, Avenue 1',
       city: 'New York',
       country: 'USA',
@@ -40,7 +41,8 @@ function App() {
     {
       id: '2',
       name: 'Sheraton',
-      image_url: 'https://drive.google.com/uc?export=view&id=1oG8F5q80t9HmKkS6iWfUG28Mmo8oFmsZ',
+      image_url:
+        'https://drive.google.com/uc?export=view&id=1oG8F5q80t9HmKkS6iWfUG28Mmo8oFmsZ',
       address: 'Street 2, Avenue 2',
       city: 'California',
       country: 'India',
@@ -66,19 +68,18 @@ function App() {
       <main className="page">
         <Routes>
           <Route path="/" element={<SplashScreen />} />
-          {localStorage.getItem('USER') ? (
-            <>
-              <Route path="/main" element={<Main />} />
-              <Route path="/reserve" element={<Reserve />} />
-              <Route path="/hotels" element={<Hotels hotels={hotels} />} />
-              <Route path="/hotels/:id" element={<HotelDetails hotels={hotels} />} />
-              <Route path="/my_reservations" element={<MyReservations />} />
-              <Route path="/add_hotel" element={<AddHotel />} />
-              <Route path="/delete_hotel" element={<DeleteHotel />} />
-            </>
-          ) : <Route path="*" element={<SplashScreen />} /> }
+          <Route path="/main" element={<Main />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/hotels" element={<Hotels hotels={hotels} />} />
+          <Route
+            path="/hotels/:id"
+            element={<HotelDetails hotels={hotels} />}
+          />
+          <Route path="/my_reservations" element={<MyReservations />} />
+          <Route path="/add_hotel" element={<AddHotel />} />
+          <Route path="/delete_hotel" element={<DeleteHotel />} />
         </Routes>
         <ToastContainer />
       </main>

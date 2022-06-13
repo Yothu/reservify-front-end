@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { deleteHotel } from '../../redux/hotels/hotel-slice';
+import hotelService from '../../redux/hotels/hotel-services';
 
 const DeleteHotelListRow = ({ id, name }) => {
-  const dispatch = useDispatch();
-
   const removeHotel = () => {
-    dispatch(deleteHotel({ id }));
+    hotelService.deleteHotelFromAPI(id);
   };
 
   return (
