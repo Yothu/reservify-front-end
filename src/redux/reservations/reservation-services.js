@@ -12,7 +12,6 @@ const fetchReservations = () => async (dispatch) => {
 
   try {
     const result = await response.data;
-    console.log(result);
     dispatch(getReservations(result));
   } catch (error) {
     // prettier-ignore

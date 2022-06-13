@@ -5,7 +5,6 @@ import Select from '../Ui/Select';
 import locationService from '../../redux/locations/location-services';
 
 function ReserveForm() {
-  const cities = ['Cairo', 'Madrid', 'Berlin'];
   const hotels = ['Hotel 1', 'Hotel 2', 'Hotel 3'];
 
   const dispatch = useDispatch();
@@ -14,8 +13,8 @@ function ReserveForm() {
     dispatch(locationService.fetchCountries());
   }, [dispatch]);
 
-  const countries = useSelector((state) => state.location.locations);
-  console.log(countries);
+  const countries = useSelector((state) => state.location.countries);
+  const cities = useSelector((state) => state.location.cities);
 
   const countriesOptions = countries.map((country) => (
     <option key={country} value={country}>
@@ -29,7 +28,11 @@ function ReserveForm() {
     </option>
   ));
 
-  const citiesOptions = cities.map((city) => (
+  const handleCountry = (e) => {
+    dispatch(locationService.fetchCities(e.target.value));
+  };
+
+  const citiesOptions = cities?.map((city) => (
     <option key={city} value={city}>
       {city}
     </option>
@@ -37,9 +40,11 @@ function ReserveForm() {
 
   return (
     <form>
-      <Select>{countriesOptions}</Select>
-      <Select>{citiesOptions}</Select>
-      <Select>{hotelOptions}</Select>
+      <Select func={handleCountry} text="Country">
+        {countriesOptions}
+      </Select>
+      <Select text="City">{citiesOptions}</Select>
+      <Select text="Hotel">{hotelOptions}</Select>
 
       <button type="submit" className={style.bookBtn}>
         Book Now

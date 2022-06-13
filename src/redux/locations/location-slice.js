@@ -3,14 +3,18 @@ import { createSlice } from '@reduxjs/toolkit';
 const locationSlice = createSlice({
   name: 'location',
   initialState: {
-    locations: [],
+    countries: [],
+    cities: [],
   },
   reducers: {
     getCountries: (state, action) => {
-      state.locations = action.payload;
+      state.countries = action.payload;
+    },
+    getCities: (state, action) => {
+      state.cities = action.payload;
     },
   },
 });
 
-export const { getCountries } = locationSlice.actions;
+export const { getCountries, getCities } = locationSlice.actions;
 export default locationSlice.reducer;
