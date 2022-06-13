@@ -9,7 +9,6 @@ const fetchCountries = () => async (dispatch) => {
       Authorization: JSON.parse(localStorage.getItem('USER')).token,
     },
   };
-
   const response = await axios.get(`${API_URL}countries`, config);
   try {
     const result = await response.data;
@@ -29,7 +28,6 @@ const fetchCities = (country) => async (dispatch) => {
       Authorization: JSON.parse(localStorage.getItem('USER')).token,
     },
   };
-
   // prettier-ignore
   const response = await axios.post(`${API_URL}cities`, { country }, config);
 
@@ -54,7 +52,6 @@ const fetchHotelsByLocation = (obj) => async (dispatch) => {
   };
   // prettier-ignore
   const response = await axios.post(`${API_URL}hotelsbylocation`, obj, config);
-
   try {
     const result = await response.data;
     dispatch(getHotelsByLocation(result));
