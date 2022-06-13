@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../styles/HotelDetails.scss';
 import Amenities from '../components/Amenities';
 import hotelService from '../redux/hotels/hotel-services';
+import Button from '../components/Ui/Button';
 
 const HotelDetails = () => {
   const dispatch = useDispatch();
@@ -25,15 +26,9 @@ const HotelDetails = () => {
     dispatch(hotelService.getOneHotel(id));
   }, []);
 
-  // const { hotels } = props;
-  // const [hotel, setHotel] = useState(false);
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     navigate('/');
-  //   }
-  //   setHotel(hotels.filter((hotel) => hotel.id === id)[0]);
-  // }, []);
+  const createReservation = () => {
+    console.log('hello');
+  };
 
   return (
     <div className="details-container pt-5 d-sm-flex position-relative justify-content-between">
@@ -82,8 +77,15 @@ const HotelDetails = () => {
 
         <h5>Featured Amenities</h5>
         <Amenities amenities={hotel.amenities} />
+        <div
+          onClick={createReservation}
+          role="presentation"
+          aria-hidden="true"
+        >
+          <Button type="button" text="Reserve" cName="my-4" />
+        </div>
       </div>
-      <Link to="/hotels" className="back-hotels position-absolute pb-3">
+      <Link to="/main" className="back-hotels position-absolute pb-3">
         Back to Hotels
       </Link>
     </div>
