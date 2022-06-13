@@ -16,13 +16,14 @@ const Select = ({
 
 Select.propTypes = {
   children: PropTypes.node.isRequired,
-  func: PropTypes.func,
   text: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  func: PropTypes.func,
 };
 
 Select.defaultProps = {
   func: null,
+  name: null,
 };
 
 export default Select;
