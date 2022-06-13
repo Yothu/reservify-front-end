@@ -1,23 +1,39 @@
-import { useState, useEffect } from 'react';
+import {
+  useEffect,
+  // useState
+} from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import '../styles/HotelDetails.scss';
 import Amenities from '../components/Amenities';
+import hotelService from '../redux/hotels/hotel-services';
 
-const HotelDetails = (props) => {
-  const { id } = useParams();
-  const { hotels } = props;
-  const [hotel, setHotel] = useState(false);
-
+const HotelDetails = () => {
+  const dispatch = useDispatch();
   const isLoggedIn = localStorage.getItem('USER') || false;
   const navigate = useNavigate();
+
+  const { id } = useParams();
+  const hotel = useSelector((state) => state.hotel.details);
+  console.log(hotel);
 
   useEffect(() => {
     if (!isLoggedIn) {
       navigate('/');
     }
-    setHotel(hotels.filter((hotel) => hotel.id === id)[0]);
+    dispatch(hotelService.getOneHotel(id));
   }, []);
+
+  // const { hotels } = props;
+  // const [hotel, setHotel] = useState(false);
+
+  // useEffect(() => {
+  //   if (!isLoggedIn) {
+  //     navigate('/');
+  //   }
+  //   setHotel(hotels.filter((hotel) => hotel.id === id)[0]);
+  // }, []);
 
   return (
     <div className="details-container pt-5 d-sm-flex position-relative justify-content-between">
@@ -72,10 +88,6 @@ const HotelDetails = (props) => {
       </Link>
     </div>
   );
-};
-
-HotelDetails.propTypes = {
-  hotels: PropTypes.arrayOf(Object).isRequired,
 };
 
 export default HotelDetails;
