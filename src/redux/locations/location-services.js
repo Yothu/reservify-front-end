@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getCountries, getCities } from './location-slice';
+import { getCountries, getCities, getHotelsByLocation } from './location-slice';
 
 const API_URL = 'https://reservify-app.herokuapp.com/api/v1/';
 
@@ -41,9 +41,27 @@ const fetchCities = (country) => async (dispatch) => {
   return true;
 };
 
+const fetchHotelsByLocation = (obj) => async (dispatch) => {
+  // prettier-ignore
+  const response = await axios.post(`${API_URL}hotelsbylocation`, obj, config);
+
+  try {
+    const result = await response.data;
+    const allHotels = result.map((el) => el.name);
+    dispatch(getHotelsByLocation(allHotels));
+  } catch (error) {
+    // prettier-ignore
+    const message = (error.response && error.response.data && error.response.data.message)
+      || error.message || error.toString();
+    return message;
+  }
+  return true;
+};
+
 const locationService = {
   fetchCountries,
   fetchCities,
+  fetchHotelsByLocation,
 };
 
 export default locationService;

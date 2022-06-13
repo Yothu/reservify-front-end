@@ -5,6 +5,7 @@ const locationSlice = createSlice({
   initialState: {
     countries: [],
     cities: [],
+    hotels: [],
   },
   reducers: {
     getCountries: (state, action) => {
@@ -13,8 +14,12 @@ const locationSlice = createSlice({
     getCities: (state, action) => {
       state.cities = action.payload;
     },
+    getHotelsByLocation: (state, action) => {
+      state.hotels = action.payload;
+    },
   },
 });
 
-export const { getCountries, getCities } = locationSlice.actions;
+//  prettier-ignore
+export const { getCountries, getCities, getHotelsByLocation } = locationSlice.actions;
 export default locationSlice.reducer;
