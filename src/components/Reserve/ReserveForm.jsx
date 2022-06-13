@@ -1,13 +1,25 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './ReserveForm.module.css';
 import Select from '../Ui/Select';
+import locationService from '../../redux/locations/location-services';
 
 function ReserveForm() {
-  const locations = ['Egypt', 'Spain', 'Germany'];
+  const cities = ['Cairo', 'Madrid', 'Berlin'];
   const hotels = ['Hotel 1', 'Hotel 2', 'Hotel 3'];
-  const locationOptions = locations.map((location) => (
-    <option key={location} value={location}>
-      {location}
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(locationService.fetchCountries());
+  }, [dispatch]);
+
+  const countries = useSelector((state) => state.location.locations);
+  console.log(countries);
+
+  const countriesOptions = countries.map((country) => (
+    <option key={country} value={country}>
+      {country}
     </option>
   ));
 
@@ -17,9 +29,16 @@ function ReserveForm() {
     </option>
   ));
 
+  const citiesOptions = cities.map((city) => (
+    <option key={city} value={city}>
+      {city}
+    </option>
+  ));
+
   return (
     <form>
-      <Select>{locationOptions}</Select>
+      <Select>{countriesOptions}</Select>
+      <Select>{citiesOptions}</Select>
       <Select>{hotelOptions}</Select>
 
       <button type="submit" className={style.bookBtn}>
