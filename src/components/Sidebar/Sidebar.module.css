@@ -18,6 +18,11 @@
   background-color: var(--white);
 }
 
+.navMenu ul:first-child {
+  min-height: 70vh;
+  margin: 1rem 0;
+}
+
 .navMenu.active {
   left: 0;
   transition: 350ms;

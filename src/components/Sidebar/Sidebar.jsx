@@ -49,11 +49,19 @@ function Navbar() {
               </div>
             </li>
 
-            <li>
-              <Link to="/" className={style.menu}>
-                <img src={logo} alt="logo" width={100} />
-              </Link>
-            </li>
+            {isLoggedIn ? (
+              <li>
+                <Link to="/main" className={style.menu}>
+                  <img src={logo} alt="logo" width={150} />
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/" className={style.menu}>
+                  <img src={logo} alt="logo" width={150} />
+                </Link>
+              </li>
+            )}
 
             {isAdmin && (
               <>
