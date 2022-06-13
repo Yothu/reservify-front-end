@@ -4,16 +4,16 @@
 
 > #### Allows users:
 
-    - To Signup and Login.
-    - To Reserve a room in any hotels
-    - To See all his reservations.
-    - To Cancel a reservation.
+- To Signup and Login.
+- To Reserve a room in any hotels
+- To See all his reservations.
+- To Cancel a reservation.
 
 > #### Allows admins:
 
-    - To Login.
-    - To Add a new hotel.
-    - To Delete a hotel.
+- To Login.
+- To Add a new hotel.
+- To Delete a hotel.
 
 ## Built With
 
@@ -37,17 +37,28 @@
 
 To get a local copy up and running follow these simple example steps.
 
-`git clone git@github.com:Yothu/reservify-front-end.git `
+```sh
+git clone git@github.com:Yothu/reservify-front-end.git 
+```
 
-Then `cd reservify-front-end `
+Then 
+```sh
+cd reservify-front-end 
+```
 
-Then `npm install` to install packages
+To install packages
+```sh 
+npm install
+``` 
 
-Finally `npm start`
+To Run the app
+```sh 
+npm start
+```
 
 ## Authors
 
-> Front-end Team
+> <h3> Front-end Team </h3>
 
 👤 **Kyrillos Hany**
 
@@ -64,7 +75,7 @@ Finally `npm start`
 - GitHub: [@Yothu](https://github.com/Yothu)
 - LinkedIn: [David Vergaray](https://www.linkedin.com/in/david-vergaray-almontes-051a11127/)
 
-> Back-end Team
+> <h3> Back-end Team </h3>
 
 👤 **Fernando Herrera**
 
