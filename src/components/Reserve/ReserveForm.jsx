@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import style from './ReserveForm.module.css';
 import Select from '../Ui/Select';
 import locationService from '../../redux/locations/location-services';
+import reservationService from '../../redux/reservations/reservation-services';
 
 function ReserveForm() {
   const [country, setCountry] = useState('');
@@ -33,7 +35,6 @@ function ReserveForm() {
       country,
       city: e.target.value,
     };
-    console.log(obj);
     dispatch(locationService.fetchHotelsByLocation(obj));
   };
 
@@ -49,9 +50,18 @@ function ReserveForm() {
     </option>
   ));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target.hotel.value);
+    await reservationService.createReservation({
+      hotel_id: e.target.hotel.value,
+      room_number: 4, // MODIFY THIS
+    });
+    e.target.reset();
+
+    if (reservationService.error) {
+      toast.error(reservationService.error);
+    }
+    toast.success('Reservation created successfully!');
   };
 
   return (

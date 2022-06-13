@@ -50,10 +50,7 @@ const MyReservations = () => {
               <th scope="col" className="d-none d-sm-block">
                 Stars
               </th>
-              <th scope="col">Check-in</th>
-              <th scope="col" className="d-none d-sm-block">
-                Check-out
-              </th>
+              <th scope="col">Created at</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -63,10 +60,7 @@ const MyReservations = () => {
                 <td>{r.hotel.name}</td>
                 <td className="d-none d-sm-table-cell">{r.hotel.room_price}</td>
                 <td>{r.hotel.stars}</td>
-                <td>{r.reservation.check_in_date}</td>
-                <td className="d-none d-sm-table-cell">
-                  {r.reservation.check_out_date}
-                </td>
+                <td>{new Date(r.reservation.created_at).toLocaleString()}</td>
                 <td>
                   <button
                     type="button"
