@@ -2,11 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import * as FaIcons from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import style from './HotelCard.module.css';
 
-const HotelCard = ({ image, name, description }) => (
+const HotelCard = ({
+  image, name, description, id,
+}) => (
   <div className={style.card}>
-    <img src={image} alt="hotel-icon" />
+    <Link to={`/hotels/${id}`}>
+      <img src={image} alt="hotel-icon" />
+    </Link>
     <div className={style['card-details']}>
       <h4>{name}</h4>
       <h5>{description}</h5>
@@ -37,6 +42,7 @@ HotelCard.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default HotelCard;

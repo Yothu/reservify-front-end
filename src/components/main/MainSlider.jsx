@@ -45,6 +45,7 @@ const MainSlider = () => {
           {hotelData.map((hotel) => (
             <HotelCard
               key={hotel.id}
+              id={hotel.id}
               image={hotel.image_url}
               name={hotel.name}
               description={hotel.description}

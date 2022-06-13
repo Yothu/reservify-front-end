@@ -30,7 +30,7 @@ function ReserveForm() {
 
   const handleCity = (e) => {
     const obj = {
-      country: country,
+      country,
       city: e.target.value,
     };
     console.log(obj);
