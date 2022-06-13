@@ -3,13 +3,13 @@ import { getCountries, getCities, getHotelsByLocation } from './location-slice';
 
 const API_URL = 'https://reservify-app.herokuapp.com/api/v1/';
 
-const config = {
-  headers: {
-    Authorization: JSON.parse(localStorage.getItem('USER')).token,
-  },
-};
-
 const fetchCountries = () => async (dispatch) => {
+  const config = {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  };
+
   const response = await axios.get(`${API_URL}countries`, config);
   try {
     const result = await response.data;
@@ -24,6 +24,12 @@ const fetchCountries = () => async (dispatch) => {
 };
 
 const fetchCities = (country) => async (dispatch) => {
+  const config = {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  };
+
   // prettier-ignore
   const response = await axios.post(`${API_URL}cities`, { country }, config);
 
@@ -41,6 +47,11 @@ const fetchCities = (country) => async (dispatch) => {
 };
 
 const fetchHotelsByLocation = (obj) => async (dispatch) => {
+  const config = {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  };
   // prettier-ignore
   const response = await axios.post(`${API_URL}hotelsbylocation`, obj, config);
 
