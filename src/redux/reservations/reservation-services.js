@@ -40,9 +40,27 @@ const cancelReservation = (id) => async (dispatch) => {
   }
 };
 
+const createReservation = async (reservation) => {
+  const response = await axios.post(`${API_URL}reservations`, reservation, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  });
+  try {
+    const result = await response.data;
+    return result.message;
+  } catch (error) {
+    // prettier-ignore
+    const message = (error.response && error.response.data && error.response.data.message)
+      || error.message || error.toString();
+    return message;
+  }
+};
+
 const reservationService = {
   fetchReservations,
   cancelReservation,
+  createReservation,
 };
 
 export default reservationService;
