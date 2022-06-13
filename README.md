@@ -17,17 +17,28 @@
 
 ## Built With
 
+> Front-end
+
 - React.js
 - Redux (@redux/toolkit)
 - Bootstrap5
-- APIs
+- Module CSS
+
+> Back-end
+
+- Ruby on Rails
+- PostgreSQL
 
 ## Additional Used
 
+- JWT
 - Sass
 - KanbanBoard
 - Linters
 - Gitflow
+
+## Link to API
+The API for this project was built with Ruby on Rails. For more information and the documentation, [check out the repository on Github](https://github.com/Yothu/hello-rails-back-end) 
 
 ## Live Demo 🌐
 
