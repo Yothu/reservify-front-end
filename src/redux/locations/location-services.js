@@ -57,8 +57,7 @@ const fetchHotelsByLocation = (obj) => async (dispatch) => {
 
   try {
     const result = await response.data;
-    const allHotels = result.map((el) => el.name);
-    dispatch(getHotelsByLocation(allHotels));
+    dispatch(getHotelsByLocation(result));
   } catch (error) {
     // prettier-ignore
     const message = (error.response && error.response.data && error.response.data.message)

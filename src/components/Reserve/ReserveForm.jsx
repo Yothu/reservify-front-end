@@ -44,13 +44,14 @@ function ReserveForm() {
   ));
 
   const hotelOptions = hotels.map((hotel) => (
-    <option key={hotel} value={hotel}>
-      {hotel}
+    <option key={hotel.id} value={hotel.id}>
+      {hotel.name}
     </option>
   ));
 
   const handleSubmit = (e) => {
-    console.log(e);
+    e.preventDefault();
+    console.log(e.target.hotel.value);
   };
 
   return (
@@ -61,7 +62,7 @@ function ReserveForm() {
       <Select func={handleCity} text="City">
         {citiesOptions}
       </Select>
-      <Select text="Hotel">{hotelOptions}</Select>
+      <Select text="Hotel" name="hotel">{hotelOptions}</Select>
 
       <button type="submit" className={style.bookBtn}>
         Book Now
