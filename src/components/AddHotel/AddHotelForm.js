@@ -12,6 +12,7 @@ const AddHotelForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -22,6 +23,8 @@ const AddHotelForm = () => {
     } else {
       toast.error('Something went wrong');
     }
+    reset();
+    setImgPreview('');
   };
 
   const previewHandler = (e) => {
@@ -120,7 +123,7 @@ const AddHotelForm = () => {
           onChange={(e) => previewHandler(e)}
         />
         <div>
-          <img src={imgPreview} alt="image preview" width={150} />
+          {imgPreview && <img src={imgPreview} alt="thumbnail preview" width={150} />}
         </div>
       </div>
 
