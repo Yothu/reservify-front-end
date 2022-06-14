@@ -66,13 +66,15 @@ function ReserveForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Select func={handleCountry} text="Country">
-        {countriesOptions}
-      </Select>
-      <Select func={handleCity} text="City">
-        {citiesOptions}
-      </Select>
-      <Select text="Hotel" name="hotel">{hotelOptions}</Select>
+      <div className="d-flex flex-wrap justify-content-center">
+        <Select func={handleCountry} text="Country">
+          {countriesOptions}
+        </Select>
+        <Select func={handleCity} text="City">
+          {citiesOptions}
+        </Select>
+        <Select text="Hotel" name="hotel">{hotelOptions}</Select>
+      </div>
 
       <button type="submit" className={style.bookBtn}>
         Book Now
