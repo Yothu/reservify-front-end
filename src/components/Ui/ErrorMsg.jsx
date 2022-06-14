@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function ErrorMsg({ message, cName }) {
   return (
-    <span className={`alert alert-danger ${cName}`} role="alert">
+    <span className={`alert alert-danger ${cName} w-100`} role="alert">
       {message}
     </span>
   );

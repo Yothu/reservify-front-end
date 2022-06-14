@@ -7,9 +7,15 @@
   gap: 0.5rem;
 }
 
-.card img {
+.card a {
+  text-align: center;
   width: 100%;
   border-radius: 0.5rem;
+}
+
+.card a img {
+  width: 300px;
+  height: 300px;
 }
 
 .card-details {

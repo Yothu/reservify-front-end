@@ -70,7 +70,13 @@ const SignupForm = () => {
         type="text"
         placeholder="Email"
         className="form-control"
-        {...register('email', { required: 'Email is Required' })}
+        {...register('email', {
+          required: 'Email is required',
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: 'Invalid email address',
+          },
+        })}
       />
       {errors.email && <ErrorMsg message={errors.email.message} />}
       <input
