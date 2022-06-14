@@ -6,9 +6,11 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import '../styles/HotelDetails.scss';
+import { toast } from 'react-toastify';
 import Amenities from '../components/Amenities';
 import hotelService from '../redux/hotels/hotel-services';
 import Button from '../components/Ui/Button';
+import reservationService from '../redux/reservations/reservation-services';
 
 const HotelDetails = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,9 @@ const HotelDetails = () => {
   const hotel = useSelector((state) => state.hotel.details);
   console.log(hotel);
 
+  const amenitiesList = Object.entries(hotel).filter(([key, value]) => typeof value === 'boolean' && key);
+  const amenities = Object.fromEntries(amenitiesList);
+
   useEffect(() => {
     if (!isLoggedIn) {
       navigate('/');
@@ -26,7 +31,16 @@ const HotelDetails = () => {
     dispatch(hotelService.getOneHotel(id));
   }, []);
 
-  const createReservation = () => {
+  const createReservation = async () => {
+    await reservationService.createReservation({
+      hotel_id: hotel.id,
+      room_number: 5, // MODIFY THIS
+    });
+
+    if (reservationService.error) {
+      toast.error(reservationService.error);
+    }
+    toast.success('Reservation created successfully!');
     console.log('hello');
   };
 
@@ -76,7 +90,7 @@ const HotelDetails = () => {
         </table>
 
         <h5>Featured Amenities</h5>
-        <Amenities amenities={hotel.amenities} />
+        <Amenities amenities={amenities} />
         <div
           onClick={createReservation}
           role="presentation"
