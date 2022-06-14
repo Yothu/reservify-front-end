@@ -72,10 +72,9 @@ const getOneHotel = (id) => async (dispatch) => {
     const result = await response.data;
     dispatch(fetchOneHotel(result));
   } catch (error) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
+    // prettier-ignore
+    const message = (error.response && error.response.data && error.response.data.message)
+      || error.message || error.toString();
     return message;
   }
   return true;
