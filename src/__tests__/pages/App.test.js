@@ -11,7 +11,7 @@ describe('App', () => {
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
     expect(tree).toMatchSnapshot();
   });

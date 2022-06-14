@@ -11,7 +11,7 @@ describe('Login Page', () => {
         <BrowserRouter>
           <Signup />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
     expect(tree).toMatchSnapshot();
   });
