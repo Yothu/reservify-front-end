@@ -44,7 +44,6 @@ function LogIn() {
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(userLogin(data));
   };
 

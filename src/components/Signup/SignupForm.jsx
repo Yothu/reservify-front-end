@@ -43,8 +43,6 @@ const SignupForm = () => {
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onSubmit = (data) => {
-    console.log(data);
-    // const user = { user: { ...data } };
     dispatch(userRegister(data));
   };
 

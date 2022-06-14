@@ -14,7 +14,6 @@ const getHotels = () => async (dispatch) => {
 
   try {
     const result = await response.data;
-    console.log(result);
     dispatch(fetchHotels(result));
   } catch (error) {
     const message = (error.response && error.response.data && error.response.data.message)
@@ -42,7 +41,6 @@ const getOneHotel = (id) => async (dispatch) => {
 
   try {
     const result = await response.data;
-    console.log(result);
     dispatch(fetchOneHotel(result));
   } catch (error) {
     const message = (error.response && error.response.data && error.response.data.message)

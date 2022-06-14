@@ -19,7 +19,6 @@ const HotelDetails = () => {
 
   const { id } = useParams();
   const hotel = useSelector((state) => state.hotel.details);
-  console.log(hotel);
 
   const amenitiesList = Object.entries(hotel).filter(([key, value]) => typeof value === 'boolean' && key);
   const amenities = Object.fromEntries(amenitiesList);
@@ -41,7 +40,6 @@ const HotelDetails = () => {
       toast.error(reservationService.error);
     }
     toast.success('Reservation created successfully!');
-    console.log('hello');
   };
 
   return (
