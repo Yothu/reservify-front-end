@@ -11,10 +11,9 @@ const AddHotelForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    const response = hotelService.addHotelToAPI(data);
-    if (response.ok) {
+  const onSubmit = async (data) => {
+    const response = await hotelService.addHotelToAPI(data);
+    if (response.status === 201) {
       const { message } = response.data;
       toast.success(message);
     } else {
@@ -61,12 +60,12 @@ const AddHotelForm = () => {
         )}
         <input
           type="text"
-          placeholder="Street"
+          placeholder="Address"
           className="form-control flex-grow-1"
-          {...register('street', { required: 'Street is Required' })}
+          {...register('address', { required: 'Address is Required' })}
         />
-        {errors.street && (
-          <ErrorMsg message={errors.street.message} cName="w-75" />
+        {errors.address && (
+          <ErrorMsg message={errors.address.message} cName="w-75" />
         )}
       </div>
       <input
@@ -102,7 +101,6 @@ const AddHotelForm = () => {
           Pet Friendly
           <input
             type="checkbox"
-            // name="pet_friendly"
             {...register('pet_friendly')}
           />
         </label>
@@ -110,7 +108,6 @@ const AddHotelForm = () => {
           Wifi
           <input
             type="checkbox"
-            // name="pet_friendly"
             {...register('wifi')}
           />
         </label>
@@ -118,7 +115,6 @@ const AddHotelForm = () => {
           Air Conditioning
           <input
             type="checkbox"
-            // name="pet_friendly"
             {...register('air_conditioning')}
           />
         </label>
@@ -126,11 +122,17 @@ const AddHotelForm = () => {
           Public Pool
           <input
             type="checkbox"
-            // name="pet_friendly"
             {...register('public_pool')}
           />
         </label>
       </div>
+      <label htmlFor="image-url">
+        Image URL
+        <input
+          type="text"
+          {...register('image_url')}
+        />
+      </label>
       <Button type="submit" text="Add Hotel" cName="mt-3" />
     </form>
   );
