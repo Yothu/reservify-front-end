@@ -100,6 +100,15 @@ const AddHotelForm = () => {
         {...register('room_price', { required: 'Room price is required' })}
       />
       {errors.price && <ErrorMsg message={errors.price.message} cName="w-75" />}
+
+      <input
+        {...register('image', { required: 'Image is required' })}
+        className="form-control w-75"
+        placeholder="Hoel image"
+        type="file"
+        id="formFile"
+      />
+
       <div className="amenities-container d-flex justify-content-between w-75">
         <label htmlFor="pet-friendly">
           Pet Friendly
@@ -118,10 +127,6 @@ const AddHotelForm = () => {
           <input type="checkbox" {...register('public_pool')} />
         </label>
       </div>
-      <label htmlFor="image-url">
-        Image URL
-        <input type="text" {...register('image_url')} />
-      </label>
       <Button type="submit" text="Add Hotel" cName="mt-3" />
     </form>
   );
