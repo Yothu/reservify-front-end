@@ -109,7 +109,7 @@ const HotelDetails = () => {
           </IconContext.Provider>
         </div>
       </div>
-      <Link to="/main" className="back-arrow">
+      <Link to="/main" className="back-arrow position-absolute">
         <IconContext.Provider value={{ color: 'white' }}>
           <BiLeftArrow />
         </IconContext.Provider>
