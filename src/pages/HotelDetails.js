@@ -7,10 +7,14 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import '../styles/HotelDetails.scss';
 import { toast } from 'react-toastify';
+import { IconContext } from 'react-icons';
+import * as AiIcon from 'react-icons/ai';
+import * as RiIcon from 'react-icons/ri';
+import { BiLeftArrow } from 'react-icons/bi';
 import Amenities from '../components/Amenities';
 import hotelService from '../redux/hotels/hotel-services';
-import Button from '../components/Ui/Button';
 import reservationService from '../redux/reservations/reservation-services';
+import style from '../components/SplashScreen/AuthButtons/AuthButtons.module.css';
 
 const HotelDetails = () => {
   const dispatch = useDispatch();
@@ -33,7 +37,7 @@ const HotelDetails = () => {
   const createReservation = async () => {
     await reservationService.createReservation({
       hotel_id: hotel.id,
-      room_number: 5, // MODIFY THIS
+      room_number: 0,
     });
 
     if (reservationService.error) {
@@ -47,10 +51,6 @@ const HotelDetails = () => {
       <div className="d-flex flex-column align-items-center">
         {hotel && (
           <>
-            <h2>
-              Hotel:
-              {hotel.name}
-            </h2>
             <div className="hotel-thumbnail">
               <img
                 src={hotel.image_url}
@@ -60,29 +60,35 @@ const HotelDetails = () => {
                 className="hotel-image"
               />
             </div>
-            <p>
-              Price:
-              {' $'}
-              {hotel.room_price}
-            </p>
           </>
         )}
       </div>
       <div className="hotel-details d-flex flex-column">
+        <div className="main-details">
+          <h2>{hotel.name}</h2>
+          <p className="hotel-description">{hotel.description}</p>
+        </div>
         <h5>Info</h5>
         <table className="table details-table">
-          <tbody>
-            <tr>
+          <tbody className="">
+            <tr className="bg-secondary text-white">
               <th scope="row">Address</th>
               <td>{hotel.address}</td>
             </tr>
-            <tr>
+            <tr className="bg-white">
               <th scope="row">City</th>
               <td>{hotel.city}</td>
             </tr>
-            <tr>
+            <tr className="bg-secondary text-white">
               <th scope="row">Country</th>
               <td>{hotel.country}</td>
+            </tr>
+            <tr className="bg-white">
+              <th scope="row">Price</th>
+              <td>
+                {' $'}
+                {hotel.room_price}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -93,12 +99,20 @@ const HotelDetails = () => {
           onClick={createReservation}
           role="presentation"
           aria-hidden="true"
+          className={style['link-button']}
+          style={{ 'align-self': 'center' }}
         >
-          <Button type="button" text="Reserve" cName="my-4" />
+          <IconContext.Provider value={{ color: 'white' }}>
+            <RiIcon.RiHealthBookLine size={24} />
+            <span className={style['link-text']}>Reserve</span>
+            <AiIcon.AiOutlineRightCircle size={24} />
+          </IconContext.Provider>
         </div>
       </div>
-      <Link to="/main" className="back-hotels position-absolute pb-3">
-        Back to Hotels
+      <Link to="/main" className="back-arrow">
+        <IconContext.Provider value={{ color: 'white' }}>
+          <BiLeftArrow />
+        </IconContext.Provider>
       </Link>
     </div>
   );
