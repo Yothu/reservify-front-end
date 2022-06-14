@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchHotels } from './hotel-slice';
+import { fetchHotels, fetchOneHotel } from './hotel-slice';
 
 // Base URL for the API
 const API_URL = 'https://reservify-app.herokuapp.com/api/v1/';
@@ -14,7 +14,6 @@ const getHotels = () => async (dispatch) => {
 
   try {
     const result = await response.data;
-    console.log(result);
     dispatch(fetchHotels(result));
   } catch (error) {
     // prettier-ignore
@@ -35,21 +34,28 @@ const addHotelToAPI = async (data) => {
   return response;
 };
 
-// Delete a hotel
-const deleteHotelFromAPI = async (id) => {
-  const response = await axios.delete(`${API_URL}hotels/${id}`, {
+const getOneHotel = (id) => async (dispatch) => {
+  const response = await axios.get(`${API_URL}hotels/${id}`, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem('USER')).token,
     },
   });
-  window.location.reload();
-  return response;
+
+  try {
+    const result = await response.data;
+    dispatch(fetchOneHotel(result));
+  } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message)
+      || error.message || error.toString();
+    return message;
+  }
+  return true;
 };
 
 const hotelService = {
   getHotels,
   addHotelToAPI,
-  deleteHotelFromAPI,
+  getOneHotel,
 };
 
 export default hotelService;

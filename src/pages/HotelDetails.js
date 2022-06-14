@@ -1,23 +1,46 @@
-import { useState, useEffect } from 'react';
+import {
+  useEffect,
+  // useState
+} from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import '../styles/HotelDetails.scss';
+import { toast } from 'react-toastify';
 import Amenities from '../components/Amenities';
+import hotelService from '../redux/hotels/hotel-services';
+import Button from '../components/Ui/Button';
+import reservationService from '../redux/reservations/reservation-services';
 
-const HotelDetails = (props) => {
-  const { id } = useParams();
-  const { hotels } = props;
-  const [hotel, setHotel] = useState(false);
-
+const HotelDetails = () => {
+  const dispatch = useDispatch();
   const isLoggedIn = localStorage.getItem('USER') || false;
   const navigate = useNavigate();
+
+  const { id } = useParams();
+  const hotel = useSelector((state) => state.hotel.details);
+
+  const amenitiesList = Object.entries(hotel).filter(([key, value]) => typeof value === 'boolean' && key);
+  const amenities = Object.fromEntries(amenitiesList);
 
   useEffect(() => {
     if (!isLoggedIn) {
       navigate('/');
     }
-    setHotel(hotels.filter((hotel) => hotel.id === id)[0]);
+    dispatch(hotelService.getOneHotel(id));
   }, []);
+
+  const createReservation = async () => {
+    await reservationService.createReservation({
+      hotel_id: hotel.id,
+      room_number: 5, // MODIFY THIS
+    });
+
+    if (reservationService.error) {
+      toast.error(reservationService.error);
+    }
+    toast.success('Reservation created successfully!');
+  };
 
   return (
     <div className="details-container pt-5 d-sm-flex position-relative justify-content-between">
@@ -65,17 +88,20 @@ const HotelDetails = (props) => {
         </table>
 
         <h5>Featured Amenities</h5>
-        <Amenities amenities={hotel.amenities} />
+        <Amenities amenities={amenities} />
+        <div
+          onClick={createReservation}
+          role="presentation"
+          aria-hidden="true"
+        >
+          <Button type="button" text="Reserve" cName="my-4" />
+        </div>
       </div>
-      <Link to="/hotels" className="back-hotels position-absolute pb-3">
+      <Link to="/main" className="back-hotels position-absolute pb-3">
         Back to Hotels
       </Link>
     </div>
   );
-};
-
-HotelDetails.propTypes = {
-  hotels: PropTypes.arrayOf(Object).isRequired,
 };
 
 export default HotelDetails;

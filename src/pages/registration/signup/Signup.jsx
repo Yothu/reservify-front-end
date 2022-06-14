@@ -1,5 +1,5 @@
 import SignupForm from '../../../components/Signup/SignupForm';
-import registerImg from '../../../assets/images/undraw-svg/register.svg';
+import registerImg from '../../../assets/images/undraw-svg/green-register.svg';
 import style from './Signup.module.css';
 
 function Signup() {

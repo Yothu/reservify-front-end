@@ -4,6 +4,7 @@ const hotelSlice = createSlice({
   name: 'hotel',
   initialState: {
     hotels: [],
+    details: {},
   },
   reducers: {
     deleteHotel(state, action) {
@@ -13,8 +14,11 @@ const hotelSlice = createSlice({
     fetchHotels(state, action) {
       state.hotels = action.payload;
     },
+    fetchOneHotel(state, action) {
+      state.details = action.payload;
+    },
   },
 });
 
-export const { deleteHotel, fetchHotels } = hotelSlice.actions;
+export const { deleteHotel, fetchHotels, fetchOneHotel } = hotelSlice.actions;
 export default hotelSlice.reducer;

@@ -1,42 +1,41 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DateTime } from 'luxon';
+import { useDispatch, useSelector } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert';
+import reservationService from '../redux/reservations/reservation-services';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const MyReservations = () => {
   const isLoggedIn = localStorage.getItem('USER') || false;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const reservations = useSelector((state) => state.reservation.reservations);
+
   useEffect(() => {
     if (!isLoggedIn) {
       navigate('/');
     }
-  }, []);
-  const reservations = [
-    {
-      id: '1',
-      name: 'Best Western',
-      price: 252.5,
-      stars: 4,
-      start_date: DateTime.local(2022, 6, 10, 17, 36),
-      end_date: DateTime.local(2022, 6, 15, 17, 36),
-    },
-    {
-      id: '2',
-      name: 'Wyndham',
-      price: 641.2,
-      stars: 5,
-      start_date: DateTime.local(2022, 7, 15, 17, 36),
-      end_date: DateTime.local(2022, 7, 21, 17, 36),
-    },
-  ];
+    dispatch(reservationService.fetchReservations());
+  }, [dispatch, isLoggedIn, navigate]);
 
-  reservations.forEach((reservation) => {
-    reservation.duration = reservation.end_date.diff(reservation.start_date, [
-      'years',
-      'months',
-      'days',
-      'hours',
-    ]).days;
-  });
+  const handleDelete = (id) => {
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure you want to cancel this reservation.',
+      buttons: [
+        {
+          label: 'Confirm',
+          onClick: () => {
+            dispatch(reservationService.cancelReservation(id));
+          },
+        },
+        {
+          label: 'Cancel',
+          onClick: () => null,
+        },
+      ],
+    });
+  };
 
   return (
     <>
@@ -51,28 +50,23 @@ const MyReservations = () => {
               <th scope="col" className="d-none d-sm-block">
                 Stars
               </th>
-              <th scope="col">Check-in</th>
-              <th scope="col" className="d-none d-sm-block">
-                Check-out
-              </th>
+              <th scope="col">Created at</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {reservations.map((reservation) => (
-              <tr key={reservation.id}>
-                <td>{reservation.name}</td>
+            {reservations.map((r) => (
+              <tr key={r.reservation.id}>
+                <td>{r.hotel.name}</td>
+                <td className="d-none d-sm-table-cell">{r.hotel.room_price}</td>
+                <td>{r.hotel.stars}</td>
+                <td>{new Date(r.reservation.created_at).toLocaleString()}</td>
                 <td>
-                  $
-                  {reservation.price}
-                </td>
-                <td className="d-none d-sm-table-cell">{reservation.stars}</td>
-                <td>{reservation.start_date.toLocaleString()}</td>
-                <td className="d-none d-sm-table-cell">
-                  {reservation.end_date.toLocaleString()}
-                </td>
-                <td>
-                  <button type="button" className="btn btn-outline-danger">
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger"
+                    onClick={() => handleDelete(r.reservation.id)}
+                  >
                     Cancel
                   </button>
                 </td>

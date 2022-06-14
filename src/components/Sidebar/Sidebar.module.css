@@ -18,6 +18,16 @@
   background-color: var(--white);
 }
 
+.navMenu ul {
+  width: 100%;
+  list-style-type: none;
+}
+
+.navMenu ul:first-child {
+  min-height: 70vh;
+  margin: 1rem 0;
+}
+
 .navMenu.active {
   left: 0;
   transition: 350ms;
@@ -47,11 +57,6 @@
 .navText a:hover {
   background-color: var(--green);
   font-weight: bold;
-}
-
-.navMenu ul {
-  width: 100%;
-  list-style-type: none;
 }
 
 .navbarToggle {
