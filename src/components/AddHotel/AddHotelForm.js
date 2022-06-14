@@ -123,7 +123,9 @@ const AddHotelForm = () => {
           onChange={(e) => previewHandler(e)}
         />
         <div>
-          {imgPreview && <img src={imgPreview} alt="thumbnail preview" width={150} />}
+          {imgPreview && (
+            <img src={imgPreview} alt="thumbnail preview" width={150} />
+          )}
         </div>
       </div>
 

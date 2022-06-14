@@ -50,6 +50,17 @@ const addHotelToAPI = async (data) => {
   return response;
 };
 
+// Delete a hotel
+const deleteHotelFromAPI = async (id) => {
+  const response = await axios.delete(`${API_URL}hotels/${id}`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem('USER')).token,
+    },
+  });
+  window.location.reload();
+  return response;
+};
+
 const getOneHotel = (id) => async (dispatch) => {
   const response = await axios.get(`${API_URL}hotels/${id}`, {
     headers: {
@@ -61,9 +72,10 @@ const getOneHotel = (id) => async (dispatch) => {
     const result = await response.data;
     dispatch(fetchOneHotel(result));
   } catch (error) {
-    const message = (error.response && error.response.data && error.response.data.message)
-      || error.message
-      || error.toString();
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
     return message;
   }
   return true;
@@ -73,6 +85,7 @@ const hotelService = {
   getHotels,
   addHotelToAPI,
   getOneHotel,
+  deleteHotelFromAPI,
 };
 
 export default hotelService;

@@ -9,7 +9,8 @@ const hotelSlice = createSlice({
   reducers: {
     deleteHotel(state, action) {
       // prettier-ignore
-      state.hotels.splice(state.hotels.findIndex((hotel) => hotel.id === action.payload.id), 1);
+      console.log('deleteHotel', action.payload);
+      state.hotels.filter((hotel) => hotel.id !== action.payload);
     },
     fetchHotels(state, action) {
       state.hotels = action.payload;

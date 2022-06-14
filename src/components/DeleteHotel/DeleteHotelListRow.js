@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import hotelService from '../../redux/hotels/hotel-services';
 
 const DeleteHotelListRow = ({ id, name }) => {
-  const removeHotel = () => {
-    hotelService.deleteHotelFromAPI(id);
+  const removeHotel = async () => {
+    await hotelService.deleteHotelFromAPI(id);
   };
 
   return (
