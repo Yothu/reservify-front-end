@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { confirmAlert } from 'react-confirm-alert';
 import reservationService from '../redux/reservations/reservation-services';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import style from './MyReservations.module.css';
 
 const MyReservations = () => {
   const isLoggedIn = localStorage.getItem('USER') || false;
@@ -39,17 +40,14 @@ const MyReservations = () => {
 
   return (
     <>
-      <h1 className="text-center mt-5">My Reservations</h1>
-      <div className="d-flex flex-column">
-        <table className="table table-bordered table-hover">
-          <caption>All your reservations</caption>
+      <div className="container mt-5">
+        <h1 className="text-center my-5">My Reservations</h1>
+        <table className={`table table-bordered table-hover ${style.table}`}>
           <thead className="table-dark">
             <tr>
               <th scope="col">Hotel Name</th>
               <th scope="col">Price</th>
-              <th scope="col" className="d-none d-sm-block">
-                Stars
-              </th>
+              <th scope="col">Stars</th>
               <th scope="col">Created at</th>
               <th scope="col">Actions</th>
             </tr>
@@ -58,8 +56,16 @@ const MyReservations = () => {
             {reservations.map((r) => (
               <tr key={r.reservation.id}>
                 <td>{r.hotel.name}</td>
-                <td className="d-none d-sm-table-cell">{r.hotel.room_price}</td>
-                <td>{r.hotel.stars}</td>
+                {/* prettier-ignore */}
+                <td>
+                  $
+                  {r.hotel.room_price}
+                </td>
+                {/* prettier-ignore */}
+                <td>
+                  {r.hotel.stars}
+                  ⭐
+                </td>
                 <td>{new Date(r.reservation.created_at).toLocaleString()}</td>
                 <td>
                   <button

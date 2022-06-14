@@ -1,0 +1,55 @@
+.table {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .table > :not(:first-child) {
+    border: none;
+  }
+
+  .table thead,
+  .table th {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    margin-bottom: 15px;
+  }
+
+  .table tr td {
+    text-align: center;
+  }
+
+  .table tr td:first-child {
+    font-size: 1.6rem;
+    background-color: #222;
+    color: #fff;
+  }
+
+  .table tr td:nth-child(2)::before {
+    content: 'Price: ';
+    display: inline;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 12px;
+  }
+
+  .table tr td:nth-child(3)::before {
+    content: 'Stars: ';
+    display: inline;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 12px;
+  }
+}
