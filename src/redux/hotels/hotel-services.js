@@ -16,13 +16,15 @@ const getHotels = () => async (dispatch) => {
     const result = await response.data;
     dispatch(fetchHotels(result));
   } catch (error) {
+    // prettier-ignore
     const message = (error.response && error.response.data && error.response.data.message)
-    || error.message || error.toString();
+      || error.message || error.toString();
     return message;
   }
   return true;
 };
 
+// Add a new hotel
 const addHotelToAPI = async (data) => {
   const response = await axios.post(`${API_URL}hotels`, data, {
     headers: {

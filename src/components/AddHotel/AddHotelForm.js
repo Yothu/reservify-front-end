@@ -14,6 +14,9 @@ const AddHotelForm = () => {
   const onSubmit = async (data) => {
     const response = await hotelService.addHotelToAPI(data);
     if (response.status === 201) {
+  const onSubmit = (data) => {
+    const response = hotelService.addHotelToAPI(data);
+    if (response.ok) {
       const { message } = response.data;
       toast.success(message);
     } else {
@@ -38,7 +41,9 @@ const AddHotelForm = () => {
         className="form-control w-75"
         {...register('description', { required: 'Description is required' })}
       />
-      {errors.description && <ErrorMsg message={errors.description.message} cName="w-75" />}
+      {errors.description && (
+        <ErrorMsg message={errors.description.message} cName="w-75" />
+      )}
       <div className="d-flex gap-2 w-75">
         <input
           type="text"
@@ -84,7 +89,9 @@ const AddHotelForm = () => {
         min="1"
         placeholder="Room quantity"
         className="form-control w-75"
-        {...register('number_of_rooms', { required: 'Room quantity is required' })}
+        {...register('number_of_rooms', {
+          required: 'Room quantity is required',
+        })}
       />
       {errors.rooms && <ErrorMsg message={errors.rooms.message} cName="w-75" />}
       <input
