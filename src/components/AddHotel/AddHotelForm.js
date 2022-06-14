@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Button from '../Ui/Button';
@@ -5,6 +6,8 @@ import ErrorMsg from '../Ui/ErrorMsg';
 import hotelService from '../../redux/hotels/hotel-services';
 
 const AddHotelForm = () => {
+  const [imgPreview, setImgPreview] = useState('');
+
   const {
     register,
     handleSubmit,
@@ -19,6 +22,12 @@ const AddHotelForm = () => {
     } else {
       toast.error('Something went wrong');
     }
+  };
+
+  const previewHandler = (e) => {
+    const file = e.target.files[0];
+    const url = URL.createObjectURL(file);
+    setImgPreview(url);
   };
 
   return (
@@ -101,13 +110,19 @@ const AddHotelForm = () => {
       />
       {errors.price && <ErrorMsg message={errors.price.message} cName="w-75" />}
 
-      <input
-        {...register('image', { required: 'Image is required' })}
-        className="form-control w-75"
-        placeholder="Hoel image"
-        type="file"
-        id="formFile"
-      />
+      <div className="d-flex w-75 gap-2">
+        <input
+          {...register('image', { required: 'Image is required' })}
+          className="form-control align-self-start"
+          placeholder="Hoel image"
+          type="file"
+          id="formFile"
+          onChange={(e) => previewHandler(e)}
+        />
+        <div>
+          <img src={imgPreview} alt="image preview" width={150} />
+        </div>
+      </div>
 
       <div className="amenities-container d-flex justify-content-between w-75">
         <label htmlFor="pet-friendly">
