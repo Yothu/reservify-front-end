@@ -48,7 +48,8 @@ const MyReservations = () => {
               <th scope="col">Hotel Name</th>
               <th scope="col">Price</th>
               <th scope="col">Stars</th>
-              <th scope="col">Created at</th>
+              <th scope="col">City</th>
+              <th scope="col">Booked at</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -66,6 +67,7 @@ const MyReservations = () => {
                   {r.hotel.stars}
                   ⭐
                 </td>
+                <td>{r.hotel.city}</td>
                 <td>{new Date(r.reservation.created_at).toLocaleString()}</td>
                 <td>
                   <button

@@ -35,8 +35,9 @@
     color: #fff;
   }
 
-  .table tr td:nth-child(2)::before {
-    content: 'Price: ';
+  .table tr td:nth-child(2)::before,
+  .table tr td:nth-child(3)::before,
+  .table tr td:nth-child(4)::before {
     display: inline;
     font-size: 1.2rem;
     padding: 0.5rem;
@@ -44,12 +45,15 @@
     border-radius: 12px;
   }
 
+  .table tr td:nth-child(2)::before {
+    content: 'Price: ';
+  }
+
   .table tr td:nth-child(3)::before {
     content: 'Stars: ';
-    display: inline;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-    border-radius: 12px;
+  }
+
+  .table tr td:nth-child(4)::before {
+    content: 'City: ';
   }
 }
