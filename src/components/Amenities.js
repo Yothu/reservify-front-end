@@ -17,7 +17,7 @@ const Amenities = (props) => {
           }
           if (amenities[amenity]) {
             const prettyWord = amenity.split('_').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-            result += `<td>${prettyWord}</td>`;
+            result += `<td className="text-white" >${prettyWord}</td>`;
           }
           if (index % 3 === 2 && index !== 0) {
             result += '<tr />';

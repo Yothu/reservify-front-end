@@ -15,15 +15,44 @@ h5 {
 
 .hotel-details {
   color: gray;
+  margin: 0.5rem;
 
-  .details-table {
-    background-color: lightgoldenrodyellow;
+  .main-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h2 {
+      color: black;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .hotel-description {
+      color: #000;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hotel-price {
+      color: #000;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
   }
 
   .amenities-table {
     background-color: lightslategray;
     border-color: transparent;
   }
+}
+
+.back-arrow {
+  padding: 0.8rem 1.5rem 0.8rem 3rem;
+  background-color: var(--green);
+  border-radius: 0 40px 40px 0;
+  left: 0;
 }
 
 @media only screen and (max-width: 576px) {
