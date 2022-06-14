@@ -32,6 +32,7 @@
 ## Additional Used
 
 - JWT
+- Jest
 - Sass
 - KanbanBoard
 - Linters
@@ -65,6 +66,11 @@ npm install
 To Run the app
 ```sh 
 npm start
+```
+
+To Run the test
+```sh 
+npm run test
 ```
 
 ## Authors
