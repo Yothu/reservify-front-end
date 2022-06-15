@@ -9,7 +9,9 @@
   min-width: 100vw;
   min-height: 100vh;
   position: absolute;
-  background-color: var(--orange);
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(255, 183, 1, 0.4), rgba(255, 183, 1, 0.65)), url('../../assets/images/hotel-2.jpg');
 }
 
 .logout-menu {
