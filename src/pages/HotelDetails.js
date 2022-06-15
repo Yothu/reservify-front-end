@@ -48,7 +48,7 @@ const HotelDetails = () => {
   };
 
   return (
-    <div className="details-container pt-5 d-sm-flex position-relative justify-content-between">
+    <div className="details-container pt-5 d-md-flex position-relative justify-content-between">
       <div className="d-flex flex-column align-items-center">
         {hotel && (
           <>
@@ -71,20 +71,20 @@ const HotelDetails = () => {
         </div>
         <h5>Info</h5>
         <table className="table details-table">
-          <tbody className="">
-            <tr className="bg-secondary text-white">
+          <tbody>
+            <tr className="">
               <th scope="row">Address</th>
               <td>{hotel.address}</td>
             </tr>
-            <tr className="bg-white">
+            <tr className="">
               <th scope="row">City</th>
               <td>{hotel.city}</td>
             </tr>
-            <tr className="bg-secondary text-white">
+            <tr className="">
               <th scope="row">Country</th>
               <td>{hotel.country}</td>
             </tr>
-            <tr className="bg-white">
+            <tr className="">
               <th scope="row">Price</th>
               <td>
                 {' $'}
