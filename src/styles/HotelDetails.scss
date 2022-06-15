@@ -64,6 +64,7 @@ h5 {
   padding: 0.8rem 1.5rem 0.8rem 3rem;
   background-color: var(--green);
   border-radius: 0 40px 40px 0;
+  top: 4rem;
   left: 0;
 }
 
@@ -88,6 +89,7 @@ h5 {
   .back-arrow {
     position: absolute;
     left: 0;
+    top: auto;
     bottom: 1rem;
   }
 }
