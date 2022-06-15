@@ -54,7 +54,7 @@ function ReserveForm() {
     e.preventDefault();
     await reservationService.createReservation({
       hotel_id: e.target.hotel.value,
-      room_number: 4, // MODIFY THIS
+      room_number: 8,
     });
     e.target.reset();
 
@@ -73,7 +73,9 @@ function ReserveForm() {
         <Select func={handleCity} text="City">
           {citiesOptions}
         </Select>
-        <Select text="Hotel" name="hotel">{hotelOptions}</Select>
+        <Select text="Hotel" name="hotel">
+          {hotelOptions}
+        </Select>
       </div>
 
       <button type="submit" className={style.bookBtn}>

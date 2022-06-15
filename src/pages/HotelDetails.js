@@ -24,6 +24,7 @@ const HotelDetails = () => {
   const { id } = useParams();
   const hotel = useSelector((state) => state.hotel.details);
 
+  // prettier-ignore
   const amenitiesList = Object.entries(hotel).filter(([key, value]) => typeof value === 'boolean' && key);
   const amenities = Object.fromEntries(amenitiesList);
 
@@ -37,7 +38,7 @@ const HotelDetails = () => {
   const createReservation = async () => {
     await reservationService.createReservation({
       hotel_id: hotel.id,
-      room_number: 0,
+      room_number: 30,
     });
 
     if (reservationService.error) {
