@@ -132,19 +132,19 @@ const AddHotelForm = () => {
       <div className="amenities-container d-flex justify-content-between w-75">
         <label htmlFor="pet-friendly">
           Pet Friendly
-          <input type="checkbox" {...register('pet_friendly')} />
+          <input className="ms-1" type="checkbox" {...register('pet_friendly')} />
         </label>
         <label htmlFor="wifi">
           Wifi
-          <input type="checkbox" {...register('wifi')} />
+          <input className="ms-1" type="checkbox" {...register('wifi')} />
         </label>
         <label htmlFor="air-conditioning">
           Air Conditioning
-          <input type="checkbox" {...register('air_conditioning')} />
+          <input className="ms-1" type="checkbox" {...register('air_conditioning')} />
         </label>
         <label htmlFor="public-pool">
           Public Pool
-          <input type="checkbox" {...register('public_pool')} />
+          <input className="ms-1" type="checkbox" {...register('public_pool')} />
         </label>
       </div>
       <Button type="submit" text="Add Hotel" cName="mt-3" />
