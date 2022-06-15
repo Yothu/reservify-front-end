@@ -15,8 +15,10 @@ function Main() {
   return (
     <section className={style.main}>
       <div className={style.content}>
-        <h2>Most Reserved</h2>
-        <p>Please Select Your Favourite Hotel</p>
+        <div className={style.titleContainer}>
+          <h2>Most Reserved</h2>
+          <p>Please Select Your Favourite Hotel</p>
+        </div>
         <MainSlider />
       </div>
     </section>
