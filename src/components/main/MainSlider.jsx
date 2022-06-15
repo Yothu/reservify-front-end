@@ -10,7 +10,7 @@ const MainSlider = () => {
   const rightArrow = useRef();
   const leftArrow = useRef();
   const [counter, setCounter] = useState(0);
-  const size = 340;
+  const size = 260;
   const hotelData = useSelector((state) => state.hotel.hotels);
 
   const nextHandler = () => {
