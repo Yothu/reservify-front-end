@@ -1,5 +1,5 @@
 .card {
-  min-width: 20rem;
+  min-width: 15rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -14,8 +14,8 @@
 }
 
 .card a img {
-  width: 300px;
-  height: 300px;
+  width: 11rem;
+  height: 11rem;
 }
 
 .card-details {
@@ -28,17 +28,20 @@
 .card-details h5 {
   color: var(--gray-dark);
   text-align: center;
+  font-size: 0.8rem;
 }
 
 .card ul {
   list-style-type: none;
   display: flex;
   gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .card ul li {
-  font-size: 1.2rem;
-  padding: 0.5rem;
+  font-size: 0.6rem;
+  padding: 0.3rem;
   border: 2px solid var(--bg-gray);
   border-radius: 50%;
 }
