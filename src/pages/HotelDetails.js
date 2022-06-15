@@ -38,7 +38,6 @@ const HotelDetails = () => {
   const createReservation = async () => {
     await reservationService.createReservation({
       hotel_id: hotel.id,
-      room_number: 30,
     });
 
     if (reservationService.error) {
@@ -49,7 +48,7 @@ const HotelDetails = () => {
 
   return (
     <div className="h-100 pt-5 d-md-flex position-relative justify-content-between">
-      <div className="d-flex flex-column align-items-center">
+      <div className="d-flex flex-column align-items-center justify-content-center">
         {hotel && (
           <>
             <div className="hotel-thumbnail">

@@ -54,7 +54,6 @@ function ReserveForm() {
     e.preventDefault();
     await reservationService.createReservation({
       hotel_id: e.target.hotel.value,
-      room_number: 8,
     });
     e.target.reset();
 

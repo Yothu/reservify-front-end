@@ -13,6 +13,7 @@
   text-decoration: none !important;
   padding: 0.5rem 0.7rem;
   margin: 0.5rem;
+  cursor: pointer;
 }
 
 .link-button:hover {
