@@ -43,9 +43,17 @@ h5 {
   }
 
   .amenities-table {
-    background-color: lightslategray;
+    background-color: var(--more-grayter);
     border-color: transparent;
   }
+}
+
+.details-table > tbody > tr:nth-child(even) {
+  background-color: white;
+}
+
+.details-table > tbody > tr:nth-child(odd) {
+  background-color: var(--more-grayter);
 }
 
 .back-arrow {
@@ -55,7 +63,7 @@ h5 {
   left: 0;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 768px) {
   .back-hotels {
     top: 0;
     margin-top: 70px;
@@ -66,7 +74,7 @@ h5 {
   }
 }
 
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 768px) {
   .hotel-details {
     align-self: center;
     width: 40vw;
