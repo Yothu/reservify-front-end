@@ -56,6 +56,10 @@ h5 {
   background-color: var(--more-grayter);
 }
 
+.details-container {
+  height: 100vh;
+}
+
 .back-arrow {
   padding: 0.8rem 1.5rem 0.8rem 3rem;
   background-color: var(--green);
@@ -78,11 +82,12 @@ h5 {
   .hotel-details {
     align-self: center;
     width: 40vw;
+    margin-right: 1rem;
   }
 
   .back-arrow {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 1rem;
   }
 }

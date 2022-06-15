@@ -48,7 +48,7 @@ const HotelDetails = () => {
   };
 
   return (
-    <div className="details-container pt-5 d-md-flex position-relative justify-content-between">
+    <div className="h-100 pt-5 d-md-flex position-relative justify-content-between">
       <div className="d-flex flex-column align-items-center">
         {hotel && (
           <>
