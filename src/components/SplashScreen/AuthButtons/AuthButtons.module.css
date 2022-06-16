@@ -1,0 +1,25 @@
+.buttons-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.link-button {
+  color: white;
+  font-weight: bolder;
+  border-radius: 2rem;
+  background-color: var(--green);
+  text-decoration: none !important;
+  padding: 0.5rem 0.7rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: gray;
+}
+
+.link-text {
+  padding: 0.5rem;
+}

@@ -1,0 +1,21 @@
+.bookBtn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  color: var(--green);
+  background-color: var(--white);
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.4s;
+  width: 250px;
+}
+
+.bookBtn:hover {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}

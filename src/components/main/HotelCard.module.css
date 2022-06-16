@@ -1,0 +1,51 @@
+.card {
+  min-width: 15rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card a {
+  text-align: center;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.card a img {
+  width: 11rem;
+  height: 11rem;
+}
+
+.card-details {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-details h5 {
+  color: var(--gray-dark);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.card ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.card ul li {
+  font-size: 0.6rem;
+  padding: 0.3rem;
+  border: 2px solid var(--bg-gray);
+  border-radius: 50%;
+}
+
+.card ul li:hover {
+  background-color: var(--green);
+}

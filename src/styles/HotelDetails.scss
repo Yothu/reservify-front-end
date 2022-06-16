@@ -1,0 +1,95 @@
+h5 {
+  padding-inline-start: 0.5rem;
+}
+
+.hotel-thumbnail {
+  min-height: 200px;
+  min-width: 60vw;
+  max-width: 800px;
+  text-align: center;
+
+  .hotel-image {
+    border-radius: 50%;
+  }
+}
+
+.hotel-details {
+  color: gray;
+  margin: 0.5rem;
+
+  .main-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h2 {
+      color: black;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .hotel-description {
+      color: #000;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hotel-price {
+      color: #000;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .amenities-table {
+    background-color: var(--more-grayter);
+    border-color: transparent;
+  }
+}
+
+.details-table > tbody > tr:nth-child(even) {
+  background-color: white;
+}
+
+.details-table > tbody > tr:nth-child(odd) {
+  background-color: var(--more-grayter);
+}
+
+.details-container {
+  height: 100vh;
+}
+
+.back-arrow {
+  padding: 0.8rem 1.5rem 0.8rem 3rem;
+  background-color: var(--green);
+  border-radius: 0 40px 40px 0;
+  top: 4rem;
+  left: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .back-hotels {
+    top: 0;
+    margin-top: 70px;
+  }
+
+  .main-details {
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hotel-details {
+    align-self: center;
+    width: 40vw;
+    margin-right: 1rem;
+  }
+
+  .back-arrow {
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 1rem;
+  }
+}
