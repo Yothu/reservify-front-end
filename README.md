@@ -2,6 +2,8 @@
 
 > #### A hotel reservation app displays all the existing hotels and details of each hotel, allowing the user to reserve the hotel they want.
 
+> Check the [Back-end Repository](https://github.com/Yothu/reservify-back-end) of this project!
+
 > #### Allows users:
 
 - To Signup and Login.
